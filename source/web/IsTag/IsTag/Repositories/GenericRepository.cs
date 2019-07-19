@@ -1,8 +1,10 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,9 +14,9 @@ namespace IsTag.Repositories
     {
         public string _connectionString;
 
-        public GenericRepository(IConfiguration configuration)
+        public GenericRepository()
         {
-            _connectionString = configuration.GetConnectionString("ISTag");
+            _connectionString = JsonConvert.DeserializeObject<ConnectionStrings>(File.ReadAllText("cs.json")).ISTag;
         }
 
         public string GetTypeOfObject(string id)

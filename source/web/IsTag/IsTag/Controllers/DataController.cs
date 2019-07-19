@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IsTag.Controllers
 {
-#if DEBUG
+#if true
     [AllowAnonymous]
 #endif
     public class DataController : ControllerBase

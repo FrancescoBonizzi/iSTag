@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import MSAL
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let isTest = 0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        MSALGlobalConfig.loggerConfig.setLogCallback { (logLevel, message, containsPII) in
+            
+            if (!containsPII) {
+                
+                print("%@", message!)
+            }
+        }
+        
         return true
     }
 
@@ -39,6 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
+            return false
+        }
+        
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
     }
 
 

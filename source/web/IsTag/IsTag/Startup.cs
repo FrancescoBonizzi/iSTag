@@ -39,7 +39,7 @@ namespace IsTag
                     // Azure header Authorization Bearer authentication policy
                     Configuration.Bind("AzureAd", options);
                 })
-                .AddPolicyScheme("smart", "Multiple schemas", options =>
+                .AddPolicyScheme(_multipleSchemasAuthenticationHandler, "Multiple schemas", options =>
                 {
                     options.ForwardDefaultSelector = context =>
                     {
@@ -56,7 +56,7 @@ namespace IsTag
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder()
-                    .AddAuthenticationSchemes(AzureADDefaults.AuthenticationScheme)
+                //    .AddAuthenticationSchemes(AzureADDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser()
                     .Build();
                 options.Filters.Add(new AuthorizeFilter(policy));

@@ -117,9 +117,9 @@ namespace IsTag.Controllers
                 _consumablesRepository.InsertConsumable(c);
                 return Ok();
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                return BadRequest();
+                return BadRequest($"Generic error: {ex.Message}");
             }
         }
     }

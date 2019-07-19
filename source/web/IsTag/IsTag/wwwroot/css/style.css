@@ -672,6 +672,24 @@ a {
     text-align: center;
 }
 
+.qrContainer {
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+}
+
+.qrImage {
+    width: 500px;
+}
+
+.qtTitle {
+    text-align: center !important;
+}
+
+.background-white {
+    background: white;
+}
+
 
 /* Controls */
 /* Checkbox */

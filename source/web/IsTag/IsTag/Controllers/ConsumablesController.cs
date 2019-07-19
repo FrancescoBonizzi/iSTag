@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IsTag.Controllers
 {
@@ -50,37 +51,15 @@ namespace IsTag.Controllers
 
         public IActionResult GetAll()
         {
-            return Ok(new List<Consumable>()
+            var data = _consumablesRepository.GetAllConsumables();
+            return Ok(data.Select(a => new Consumable()
             {
-                new Consumable()
-                {
-                    Name = "PulisciCulo",
-                    QRCode = "a",
-                    Status = new Random().Next() % 2 == 0 ? "Missing" : "NotMissing",
-                    Description = "Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
-                },
-                new Consumable()
-                {
-                    Name = "PulisciFiga",
-                    QRCode = "b",
-                    Status = new Random().Next() % 2 == 0 ? "Missing" : "NotMissing",
-                    Description = "Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
-                },
-                new Consumable()
-                {
-                    Name = "PulisciCuore",
-                    QRCode = "c",
-                    Status = new Random().Next() % 2 == 0 ? "Missing" : "NotMissing",
-                    Description = "Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
-                },
-                new Consumable()
-                {
-                    Name = "PulisciAnima",
-                    QRCode = "d",
-                    Status = new Random().Next() % 2 == 0 ? "Missing" : "NotMissing",
-                    Description = "Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
-                },
-            });
+                Category = a.Category,
+                Description = a.Description,
+                Name = a.Name,
+                QRCode = a.QRCode,
+                Status = a.Status
+            }));
         }
 
         public IActionResult GetData(string id)

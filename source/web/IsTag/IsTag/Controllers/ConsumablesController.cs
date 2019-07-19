@@ -1,20 +1,34 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using IsTag.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 
 namespace IsTag.Controllers
 {
-#if DEBUG
+#if true
     [AllowAnonymous]
 #endif
     public class ConsumablesController : ControllerBase
     {
+        private readonly IConsumablesRepository _consumablesRepository;
+
+        public ConsumablesController(IConsumablesRepository consumablesRepository)
+        {
+            _consumablesRepository = consumablesRepository;
+        }
+
         public class Consumable
         {
             public string Name { get; set; }
             public string QRCode { get; set; }
             public string Status { get; set; }
+            public string Category { get; set; }
+            public string Description { get; set; }
             public string Description { get; set; }
 
             public bool IsMissing
@@ -76,16 +90,30 @@ namespace IsTag.Controllers
 
         public IActionResult GetData(string id)
         {
-            return Ok(new Consumable()
+            var cons = _consumablesRepository.GetConsumable(id);
+
+            return cons == null ? (IActionResult)BadRequest() : Ok(new Consumable()
             {
-                Name = "PulisciCulo",
-                Status = new Random().Next() % 2 == 0 ? "Missing" : "NotMissing"
+                Category = cons.Category,
+                Description = cons.Description,
+                Name = cons.Name,
+                Status = cons.Status
             });
         }
 
         public IActionResult MissingNotMissing(string id)
         {
-            return Ok(new Random().Next() % 2 == 0 ? "Missing" : "NotMissing");
+            string res = null;
+            try
+            {
+                res = _consumablesRepository.SetMissingNotMissing(id);
+            }
+            catch(Exception)
+            {
+                // TODO Loggala
+                return BadRequest();
+            }
+            return Ok(res);
         }
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IsTag.Controllers
 {
-#if DEBUG
+#if true
     [AllowAnonymous]
 #endif
     public class WarehouseController : ControllerBase
@@ -40,7 +40,8 @@ namespace IsTag.Controllers
                 {
                     Email = "t.eeeeeeee@isolutions.it",
                     Name = "Tèèèèèèèèèèè!"
-                }
+                },
+                Category = "PC"
             });
         }
 

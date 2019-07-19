@@ -13,6 +13,7 @@
         <ul>
 
             <transition-group name="list" tag="li">
+
                 <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container">
 
                     <div class="consumable-image consumable-property">
@@ -30,7 +31,7 @@
                     <div class="consumable-property">
                         <label class="checkbox-container">
                             Mancante
-                            <input type="checkbox" v-model="consumable.isMissing" />
+                            <input type="checkbox" v-model="consumable.isMissing" v-on:click="setMissing(consumable.qrCode)" />
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -63,7 +64,15 @@
                         showAll: true
                     },
                     methods: {
-
+                        setMissing: function (id) {
+                            $.get("/Consumables/MissingNotMissing/" + id)
+                                .done(function (response) {
+                                    $.get("/Consumables/GetAll").done(function (response) {
+                                        allConsumables = response;
+                                        this.consumables = allConsumables;
+                                    });
+                                });
+                        }
                     },
                     watch: {
                         showAll: function (newValue, oldValue) {

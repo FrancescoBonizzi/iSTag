@@ -46,7 +46,6 @@ namespace IsTag.Controllers
                     }
                 }
             }
-
         }
 
         public IActionResult GetAll()

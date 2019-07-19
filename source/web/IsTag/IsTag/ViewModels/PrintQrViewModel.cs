@@ -2,12 +2,12 @@
 {
     public class PrintQrViewModel
     {
-        public string QrUrl { get; }
+        public string QrCode { get; }
         public string Name { get; }
 
         public PrintQrViewModel(string qrCode, string name)
         {
-            QrUrl = qrCode;
+            QrCode = qrCode;
             Name = name;
         }
     }

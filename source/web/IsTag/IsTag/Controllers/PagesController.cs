@@ -33,8 +33,7 @@ namespace IsTag.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult PrintQr(string id)
+        public IActionResult PrintQr(string id, string name)
         {
             return View(new PrintQrViewModel(id, name));
         }

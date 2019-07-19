@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="consumable-property">
-                            <button class="button-black" v-on:click="printQr(consumable.qrCode)">Stampa codice</button>
+                            <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name)">Stampa codice</button>
                         </div>
 
                     </div>
@@ -121,9 +121,9 @@
                         refreshData();
                     });
             },
-            printQr: function (id) {
+            printQr: function (id, name) {
 
-                window.open("/Consumables?id=" + id);
+                window.open("/Pages/PrintQr?id=" + id + "&name=" + name);
 
             },
             createNewItem: function (newItemObject) {

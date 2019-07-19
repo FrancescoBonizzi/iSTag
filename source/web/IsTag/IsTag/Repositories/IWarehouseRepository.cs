@@ -8,6 +8,6 @@ namespace IsTag.Repositories
 {
     public interface IWarehouseRepository
     {
-        Warehouse GetWarehouseItem(string id);
+        WarehouseItem GetWarehouseItem(string id);
     }
 }

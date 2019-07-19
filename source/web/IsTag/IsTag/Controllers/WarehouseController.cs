@@ -45,7 +45,7 @@ namespace IsTag.Controllers
                 },
                 Category = "PC",
                 Description = "Questa descrizione descrive questo oggetto",
-                Picture = @"https://i.kym-cdn.com/photos/images/newsfeed/000/096/044/trollface.jpg?1296494117"
+                Picture = @"/Images/Image/Consumable"
             });
         }
 

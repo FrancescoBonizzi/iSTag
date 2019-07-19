@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Dapper;
+using IsTag.Entities;
+using Newtonsoft.Json;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using Dapper;
-using IsTag.Entities;
-using Newtonsoft.Json;
 
 namespace IsTag.Repositories
 {

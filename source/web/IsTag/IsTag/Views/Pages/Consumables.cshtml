@@ -1,43 +1,46 @@
-﻿<h1>Consumabili</h1>
-<h2>Tutti gli oggetti che in azienda possono terminare</h2>
+﻿<div class="animated fadeIn">
+    <h1>Consumabili</h1>
+    <h2>Tutti gli oggetti che in azienda possono terminare</h2>
 
-<div id="app-consumable">
+    <div id="app-consumable">
 
-    <label class="checkbox-container">
-        Mostra tutti
-        <input type="checkbox" v-model="showAll" />
-        <span class="checkmark"></span>
-    </label>
+        <label class="checkbox-container">
+            Mostra tutti
+            <input type="checkbox" v-model="showAll" />
+            <span class="checkmark"></span>
+        </label>
 
-    <ul>
+        <ul>
 
-        <transition-group name="list" tag="li">
-            <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container">
+            <transition-group name="list" tag="li">
+                <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container">
 
-                <div class="consumable-image consumable-property">
+                    <div class="consumable-image consumable-property">
 
-                </div>
+                    </div>
 
-                <div class="consumable-name consumable-property">
-                    {{ consumable.name }}
-                </div>
+                    <div class="consumable-name consumable-property">
+                        {{ consumable.name }}
+                    </div>
 
-                <div class="consumable-description consumable-property">
-                    {{ consumable.description }}
-                </div>
+                    <div class="consumable-description consumable-property">
+                        {{ consumable.description }}
+                    </div>
 
-                <div class="consumable-property">
-                    <label class="checkbox-container">
-                        Mancante
-                        <input type="checkbox" v-model="consumable.isMissing" />
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
+                    <div class="consumable-property">
+                        <label class="checkbox-container">
+                            Mancante
+                            <input type="checkbox" v-model="consumable.isMissing" />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
 
-            </li>
-        </transition-group>
+                </li>
+            </transition-group>
 
-    </ul>
+        </ul>
+
+    </div>
 
 </div>
 

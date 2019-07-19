@@ -10,7 +10,7 @@ namespace IsTag.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return Ok($"Yes I am {User.Identity.Name}!");
+                return Ok($"Yes I am, {User.Identity.Name}!");
             }
             else
             {

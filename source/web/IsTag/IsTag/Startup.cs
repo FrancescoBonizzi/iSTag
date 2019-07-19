@@ -56,6 +56,7 @@ namespace IsTag
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(AzureADDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser()
                     .Build();
                 options.Filters.Add(new AuthorizeFilter(policy));

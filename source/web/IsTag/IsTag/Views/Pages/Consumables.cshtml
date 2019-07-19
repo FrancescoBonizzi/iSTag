@@ -4,17 +4,31 @@
 
     <div id="app-consumable">
 
-        <label class="checkbox-container">
-            Mostra tutti
-            <input type="checkbox" v-model="showAll" />
-            <span class="checkmark"></span>
-        </label>
+        <div class="consumable-newitem-container someobject-container">
+            <span class="consumable-label">Nome</span>
+            <input class="consumable-textbox" type="text" v-model="newItem.name" />
+
+            <span class="consumable-label">Descrizione</span>
+            <input class="consumable-textbox" type="text" v-model="newItem.description" />
+            <button v-on:click="createNewItem(newItem)">Nuovo oggetto consumabile</button>
+            <span class="error-label" v-if="errorMessagePresent">
+                {{ errorMessage }}
+            </span>
+        </div>
+
+        <div class="someobject-container-little">
+            <label class="checkbox-container">
+                Mostra tutti
+                <input type="checkbox" v-model="showAll" />
+                <span class="checkmark"></span>
+            </label>
+        </div>
 
         <ul>
 
             <transition-group name="list" tag="li">
 
-                <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container">
+                <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container someobject-container">
 
                     <div class="consumable-image consumable-property">
 
@@ -60,9 +74,13 @@
                 else {
                     consumableApp.consumables = allConsumables.filter(c => c.isMissing);
                 }
+
+                errorMessage = "";
+                errorMessagePresent = false;
             })
             .fail(function () {
-                alert(response);
+                errorMessage = response;
+                errorMessagePresent = true;
             });
 
     };
@@ -71,14 +89,45 @@
         el: '#app-consumable',
         data: {
             consumables: allConsumables,
-            showAll: true
+            showAll: true,
+            newItem: {
+                name: "",
+                description: "",
+                category: ""
+            },
+            errorMessage: "",
+            errorMessagePresent: false
         },
         methods: {
+
             setMissing: function (id) {
                 $.get("/Consumables/MissingNotMissing/" + id)
                     .done(function (response) {
                         refreshData();
                     });
+            },
+            createNewItem: function (newItemObject) {
+
+                if (newItemObject.name == "") {
+                    this.errorMessage = "Campi inseriti non corretti";
+                    this.errorMessagePresent = true;
+                    return;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Consumables/CreateConsumable",
+                    data: JSON.stringify(newItemObject),
+                    contentType: "application/json",
+                    success: function (data) {
+                        refreshData();
+                    },
+                    error: function (data) {
+
+                        consumableApp.errorMessage = data.responseText;
+                        consumableApp.errorMessagePresent = true;
+                    }
+                });
             }
         },
         watch: {

@@ -35,6 +35,21 @@ namespace IsTag.Repositories
             }
         }
 
+        public void InsertConsumable(Consumable consumable)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Execute("INSERT INTO QRCodes VALUES (@Qr, 'Consumable'); DECLARE @Id int = SCOPE_IDENTITY(); INSERT INTO Consumables VALUES (@Id, @Name, @Status, @Category, @Description)", 
+                    new {
+                        Qr = consumable.QRCode,
+                        Name = consumable.Name,
+                        Status = consumable.Status,
+                        Category = consumable.Category,
+                        Description = consumable.Description
+                    });
+            }
+        }
+
         public string SetMissingNotMissing(string id)
         {
             using (var connection = new SqlConnection(_connectionString))

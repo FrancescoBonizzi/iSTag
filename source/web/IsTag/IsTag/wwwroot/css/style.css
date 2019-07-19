@@ -529,7 +529,7 @@ h2 {
 }
 
 .someobject-container {
-    width: 500px;
+    width: 1000px;
     margin-bottom: 50px;
     background: white;
     border-radius: 20px;
@@ -544,6 +544,11 @@ h2 {
 }
 
 .consumable-newitem-container {
+    width: 500px;
+    margin-bottom: 50px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
     display: grid;
     grid-template-rows: auto auto auto auto auto;
 }
@@ -711,4 +716,12 @@ a {
 .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
     opacity: 0;
     transform: translateY(30px);
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all .5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
 }

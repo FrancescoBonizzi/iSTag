@@ -95,6 +95,7 @@ namespace IsTag.Controllers
             public string Category { get; set; }
             public string Description { get; set; }
         }
+
         [HttpPost]
         public IActionResult CreateConsumable([FromBody] InsertConsumable consumable)
         {

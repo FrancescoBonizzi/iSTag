@@ -44,6 +44,16 @@ class LoginVC: UIViewController {
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     @IBAction func loginTapped(_ sender: Any) {
         callGraphAPI()
     }

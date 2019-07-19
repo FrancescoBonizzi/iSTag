@@ -44,6 +44,15 @@ class OggettoVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     func roundView(viewToRound: UIView) {
         viewToRound.clipsToBounds = true
         viewToRound.layer.cornerRadius = 35

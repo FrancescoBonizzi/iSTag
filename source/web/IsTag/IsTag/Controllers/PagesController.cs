@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using IsTag.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IsTag.Controllers
@@ -30,6 +31,12 @@ namespace IsTag.Controllers
         public IActionResult Consumables()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult PrintQr(string id)
+        {
+            return View(new PrintQrViewModel(id, name));
         }
     }
 }

@@ -10,7 +10,7 @@
 
             <span class="consumable-label">Descrizione</span>
             <input class="consumable-textbox" type="text" v-model="newItem.description" />
-            <button v-on:click="createNewItem(newItem)">Nuovo oggetto consumabile</button>
+            <button class="button-green" v-on:click="createNewItem(newItem)">Nuovo oggetto consumabile</button>
 
             <transition name="fade">
                 <span class="error-label" v-if="errorMessagePresent">
@@ -34,24 +34,35 @@
 
                 <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container someobject-container">
 
-                    <div class="consumable-image consumable-property">
-
+                    <div>
+                        <div class="consumable-image consumable-property">
+                            <img :src="consumable.image" width="160px" />
+                        </div>
                     </div>
+                    
+                    <div class="consumable-details">
+                        <div class="consumable-name consumable-property">
+                            {{ consumable.name }}
+                        </div>
 
-                    <div class="consumable-name consumable-property">
-                        {{ consumable.name }}
-                    </div>
+                        <div class="consumable-description consumable-property">
+                            {{ consumable.description }}
+                        </div>
 
-                    <div class="consumable-description consumable-property">
-                        {{ consumable.description }}
-                    </div>
+                        <div class="line"></div>
 
-                    <div class="consumable-property">
-                        <label class="checkbox-container">
-                            Mancante
-                            <input type="checkbox" v-model="consumable.isMissing" v-on:click="setMissing(consumable.qrCode)" />
-                            <span class="checkmark"></span>
-                        </label>
+                        <div class="consumable-property">
+                            <label class="checkbox-container">
+                                Mancante
+                                <input type="checkbox" v-model="consumable.isMissing" v-on:click="setMissing(consumable.qrCode)" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="consumable-property">
+                            <button class="button-black" v-on:click="printQr(consumable.qrCode)">Stampa codice</button>
+                        </div>
+
                     </div>
 
                 </li>
@@ -109,6 +120,11 @@
                     .done(function (response) {
                         refreshData();
                     });
+            },
+            printQr: function (id) {
+
+                window.open("/Consumables?id=" + id);
+
             },
             createNewItem: function (newItemObject) {
 

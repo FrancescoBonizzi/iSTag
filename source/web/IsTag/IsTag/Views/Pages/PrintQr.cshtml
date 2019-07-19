@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+    @model IsTag.ViewModels.PrintQrViewModel
+}
+
+
+<html>
+
+<head>
+
+    <link href="~/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body class="background-white">
+
+    <div class="qrContainer">
+
+        <img class="qrImage" id="qrImage" src="~/Images/QR/@Model.QrCode" />
+        <h1 class="qrTitle">@Model.Name</h1>
+
+    </div>
+
+    <script>
+        window.print();
+    </script>
+
+</body>
+</html>

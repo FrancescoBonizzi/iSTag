@@ -1,0 +1,169 @@
+﻿<div class="animated fadeIn">
+    <h1>Consumabili</h1>
+    <h2>Tutti gli oggetti che in azienda possono terminare</h2>
+
+    <div id="app-consumable">
+
+        <div class="consumable-newitem-container">
+            <span class="consumable-label">Nome</span>
+            <input class="consumable-textbox" type="text" v-model="newItem.name" />
+
+            <span class="consumable-label">Descrizione</span>
+            <input class="consumable-textbox" type="text" v-model="newItem.description" />
+            <button class="button-green" v-on:click="createNewItem(newItem)">Nuovo oggetto consumabile</button>
+
+            <transition name="fade">
+                <span class="error-label" v-if="errorMessagePresent">
+                    {{ errorMessage }}
+                </span>
+            </transition>
+
+        </div>
+
+        <div class="someobject-container-little">
+            <label class="checkbox-container">
+                Mostra tutti
+                <input type="checkbox" v-model="showAll" />
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+        <ul>
+
+            <transition-group name="list" tag="li">
+
+                <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container someobject-container">
+
+                    <div>
+                        <div class="consumable-image consumable-property">
+                            <img :src="consumable.image" width="160px" />
+                        </div>
+                    </div>
+                    
+                    <div class="consumable-details">
+                        <div class="consumable-name consumable-property">
+                            {{ consumable.name }}
+                        </div>
+
+                        <div class="consumable-description consumable-property">
+                            {{ consumable.description }}
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="consumable-property">
+                            <label class="checkbox-container">
+                                Mancante
+                                <input type="checkbox" v-model="consumable.isMissing" v-on:click="setMissing(consumable.qrCode)" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="consumable-property">
+                            <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name)">Stampa codice</button>
+                        </div>
+
+                    </div>
+
+                </li>
+            </transition-group>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<script>
+
+    var allConsumables = [];
+
+    function refreshData() {
+
+        $.get("/Consumables/GetAll")
+            .done(function (response) {
+                allConsumables = response;
+                if (consumableApp.showAll) {
+                    consumableApp.consumables = allConsumables;
+                }
+                else {
+                    consumableApp.consumables = allConsumables.filter(c => c.isMissing);
+                }
+
+                consumableApp.errorMessage = "";
+                consumableApp.errorMessagePresent = false;
+            })
+            .fail(function () {
+                errorMessage = response;
+                errorMessagePresent = true;
+            });
+
+    };
+
+    var consumableApp = new Vue({
+        el: '#app-consumable',
+        data: {
+            consumables: allConsumables,
+            showAll: true,
+            newItem: {
+                name: "",
+                description: "",
+                category: ""
+            },
+            errorMessage: "",
+            errorMessagePresent: false
+        },
+        methods: {
+
+            setMissing: function (id) {
+                $.get("/Consumables/MissingNotMissing/" + id)
+                    .done(function (response) {
+                        refreshData();
+                    });
+            },
+            printQr: function (id, name) {
+
+                window.open("/Pages/PrintQr?id=" + id + "&name=" + name);
+
+            },
+            createNewItem: function (newItemObject) {
+
+                if (newItemObject.name == "") {
+                    this.errorMessage = "Campi inseriti non corretti";
+                    this.errorMessagePresent = true;
+                    return;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Consumables/CreateConsumable",
+                    data: JSON.stringify(newItemObject),
+                    contentType: "application/json",
+                    success: function (data) {
+                        consumableApp.newItem.name = "";
+                        consumableApp.newItem.description = "";
+                        refreshData();
+                    },
+                    error: function (data) {
+
+                        consumableApp.errorMessage = data.responseText;
+                        consumableApp.errorMessagePresent = true;
+                    }
+                });
+            }
+        },
+        watch: {
+            showAll: function (newValue, oldValue) {
+                if (newValue) {
+                    this.consumables = allConsumables;
+                }
+                else {
+                    this.consumables = allConsumables.filter(c => c.isMissing);
+                }
+            }
+        }
+    });
+
+    refreshData();
+
+</script>

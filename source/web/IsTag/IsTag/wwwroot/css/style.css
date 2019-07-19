@@ -1,0 +1,781 @@
+﻿@font-face {
+    font-family: 'Lato';
+    src: url('../webfonts/lato-regular-webfont.woff2') format('woff2'), url('../webfonts/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.6px;
+    line-height: 24px;
+    background: #ebebeb;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+applet {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+object {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+iframe {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h4 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h5 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+pre {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+    a:link {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:visited {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:active {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:focus {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+abbr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+acronym {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+address {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+big {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+cite {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+code {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+del {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+dfn {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+em {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ins {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+kbd {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+q {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+s {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+samp {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+small {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+strike {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+strong {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+sub {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+sup {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+tt {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+b {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+u {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+i {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+center {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+dl {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+dt {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+dd {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ol {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+legend {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+table {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+tbody {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+tfoot {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+thead {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+tr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+th {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+article {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+aside {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+canvas {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+details {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+embed {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Page styles */
+
+
+#container {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    background-color: #e0e0e0;
+    height: 100vh;
+}
+
+#navigation {
+    background-color: #f1c0c7;
+    padding: 30px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 100px 50px 50px;
+}
+
+#main-content {
+    display: grid;
+    grid-template-rows: 120px 1fr;
+}
+
+#profile-content {
+    justify-self: end;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.profile-item {
+    padding-right: 15px;
+}
+
+#page-content {
+    padding-left: 50px;
+}
+
+.logo {
+    width: 90px;
+}
+
+h1 {
+    font-size: 40px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+h2 {
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.consumable-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 500px;
+    margin-bottom: 25px;
+    -webkit-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+}
+
+.consumable-details {
+    grid-template-rows: auto auto auto;
+}
+
+.consumable-property {
+    margin-top: 20px;
+}
+
+.consumable-image {
+    margin-right: 30px;
+}
+
+.consumable-name {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.consumable-description {
+    
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(218, 222, 225);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.someobject-container {
+    width: 1000px;
+    margin-bottom: 50px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.someobject-container-little {
+    width: 500px;
+    padding: 30px;
+    display: grid;
+    justify-content: center;
+}
+
+.consumable-newitem-container {
+    width: 500px;
+    margin-bottom: 50px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    -webkit-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+}
+
+.consumable-textbox {
+    margin-bottom: 5px;
+    border-radius: 5px;
+    height: 32px;
+    border: none;
+    background: #ebebeb;
+    padding-left: 10px;
+}
+
+.login label {
+    color: #9e9e9e;
+    font-size: 12px;
+    cursor: text;
+    display: block;
+}
+
+
+.button-green {
+    height: 32px;
+    font-size: 13px;
+    background-color: #6dcf4b;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 8px 0;
+    border: none;
+    border-radius: 2px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: background-color ease 0.4s;
+    box-shadow: 0 1px 1px rgba(97,127,152,.2), 1px 0 0 rgba(97,127,152,.1), -1px 0 0 rgba(97,127,152,.1);
+}
+
+    .button-green:hover {
+        transition: background-color ease 0.4s;
+        background-color: #8ffc6a;
+    }
+
+.button-black {
+    height: 32px;
+    font-size: 13px;
+    background-color: darkslategray;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 8px 0;
+    border: none;
+    border-radius: 2px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: background-color ease 0.4s;
+    box-shadow: 0 1px 1px rgba(97,127,152,.2), 1px 0 0 rgba(97,127,152,.1), -1px 0 0 rgba(97,127,152,.1);
+}
+
+    .button-black:hover {
+        transition: background-color ease 0.4s;
+        background-color: lightslategray;
+    }
+
+
+#app-consumable {
+    margin-top: 30px;
+}
+
+a {
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+    a:link {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:visited {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:active {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:focus {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:hover {
+        color: #f54c40;
+        transition: all 0.3s ease;
+    }
+
+.error-label {
+    color: crimson;
+    font-weight: bold;
+    text-align: center;
+}
+
+.qrContainer {
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+}
+
+.qrImage {
+    width: 500px;
+}
+
+.qtTitle {
+    text-align: center !important;
+}
+
+.background-white {
+    background: white;
+}
+
+
+/* Controls */
+/* Checkbox */
+/* The container */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    /* Hide the browser's default checkbox */
+    .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Animations */
+
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all .5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}

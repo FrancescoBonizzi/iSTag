@@ -1,1 +1,509 @@
-﻿
+﻿@font-face {
+    font-family: 'Lato';
+    src: url('../webfonts/lato-regular-webfont.woff2') format('woff2'), url('../webfonts/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    line-height: 24px;
+    background: #ebebeb;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+applet {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+object {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+iframe {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h4 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h5 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+pre {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+    a:link {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:visited {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:active {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:focus {
+        color: #454545;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+abbr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+acronym {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+address {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+big {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+cite {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+code {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+del {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+dfn {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+em {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ins {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+kbd {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+q {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+s {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+samp {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+small {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+strike {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+strong {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+sub {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+sup {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+tt {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+b {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+u {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+i {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+center {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+dl {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+dt {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+dd {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ol {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+legend {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+table {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+tbody {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+tfoot {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+thead {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+tr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+th {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+article {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+aside {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+canvas {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+details {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+embed {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Page styles */
+
+
+#container {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    background-color: #e0e0e0;
+    height: 100vh;
+}
+
+#navigation {
+    background-color: #f1c0c7;
+    padding: 30px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 100px 50px 50px;
+}
+
+#main-content {
+    display: grid;
+    grid-template-rows: 120px 1fr;
+}
+
+#profile-content {
+    justify-self: end;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.profile-item {
+    padding-right: 15px;
+}
+
+#page-content {
+    padding-left: 50px;
+}
+
+.logo {
+    width: 90px;
+}
+
+h1 {
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+.consumable-container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.consumable-image {
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+}
+
+.consumable-name {
+
+}

@@ -1,0 +1,50 @@
+﻿<h1>Consumabili</h1>
+<h2>Tutti gli oggetti che in azienda possono terminare</h2>
+
+<div id="app-consumable">
+
+    <ul>
+
+        <transition-group name="list" tag="li">
+            <li class="consumable-container" v-for="consumable in consumables" v-bind:key="consumable.id">
+
+                <div class="consumable-image">
+
+                </div>
+
+                <div class="consumable-name">
+                    {{ consumable.name }}
+                </div>
+
+                <div class="consumable-description">
+                    {{ consumable.description }}
+                </div>
+
+            </li>
+        </transition-group>
+
+    </ul>
+
+</div>
+
+<script>
+
+
+
+var consumableApp = new Vue({
+  el: '#app-consumable',
+  data: {
+	buttonAddText: "Add something",
+	buttonRemoveText: "Remove something",
+    todos: [
+        { id: index++, text: 'Learn JavaScript' },
+        { id: index++, text: 'Learn Vue' },
+        { id: index++, text: 'Build something awesome' }
+    ]
+  },
+  methods: {
+
+  }
+});
+
+</script>

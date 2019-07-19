@@ -22,7 +22,12 @@ namespace IsTag.Controllers
             return View();
         }
 
-        public IActionResult Test()
+        public IActionResult Warehouse()
+        {
+            return View();
+        }
+
+        public IActionResult Consumables()
         {
             return View();
         }

@@ -31,6 +31,7 @@ namespace IsTag.Controllers
             public string Category { get; set; }
             public Owner CurrentOwner { get; set; }
             public string Description { get; set; }
+            public string Picture { get; set; }
         }
         public IActionResult GetData(string id)
         {
@@ -43,7 +44,8 @@ namespace IsTag.Controllers
                     Name = "Tèèèèèèèèèèè!"
                 },
                 Category = "PC",
-                Description = "Questa descrizione descrive questo oggetto"
+                Description = "Questa descrizione descrive questo oggetto",
+                Picture = @"https://i.kym-cdn.com/photos/images/newsfeed/000/096/044/trollface.jpg?1296494117"
             });
         }
 

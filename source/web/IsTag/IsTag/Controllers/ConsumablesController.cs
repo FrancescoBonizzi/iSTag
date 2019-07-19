@@ -26,6 +26,7 @@ namespace IsTag.Controllers
             public string Status { get; set; }
             public string Category { get; set; }
             public string Description { get; set; }
+            public string Image { get; set; }
 
             public bool IsMissing
             {
@@ -57,8 +58,9 @@ namespace IsTag.Controllers
                 Description = a.Description,
                 Name = a.Name,
                 QRCode = a.QRCode,
-                Status = a.Status
-            }));
+                Status = a.Status,
+                Image = $"/Images/Image/{a.ImageCode}"
+            })); ;
         }
 
         public IActionResult GetData(string id)
@@ -70,7 +72,9 @@ namespace IsTag.Controllers
                 Category = cons.Category,
                 Description = cons.Description,
                 Name = cons.Name,
-                Status = cons.Status
+                Status = cons.Status,
+                Image = $"/Images/Image/{cons.ImageCode}",
+                QRCode = cons.QRCode
             });
         }
 
@@ -105,7 +109,8 @@ namespace IsTag.Controllers
                 Description = consumable.Description,
                 Name = consumable.Name,
                 Status = "NotMissing",
-                QRCode = Guid.NewGuid().ToString()
+                QRCode = Guid.NewGuid().ToString(),
+                ImageCode = "Consumable"
             };
 
             try

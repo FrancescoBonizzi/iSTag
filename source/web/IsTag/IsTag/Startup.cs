@@ -66,6 +66,7 @@ namespace IsTag
 
             services.AddSingleton<IGenericRepository, GenericRepository>();
             services.AddSingleton<IConsumablesRepository, ConsumablesRepository>();
+            services.AddSingleton<IImagesRepository, ImagesRepository>();
         }
 
         public void Configure(

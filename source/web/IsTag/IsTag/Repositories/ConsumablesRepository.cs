@@ -21,7 +21,7 @@ namespace IsTag.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var consumable = connection.Query<Consumable>("SELECT Q.QRCode, C.Name, C.Status, C.Category, C.Description FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID");
+                var consumable = connection.Query<Consumable>("SELECT Q.QRCode, C.Name, C.Status, C.Category, C.Description, C.ImageCode FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID");
                 return consumable;
             }
         }
@@ -30,7 +30,7 @@ namespace IsTag.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var consumable = connection.Query<Consumable>("SELECT Q.QRCode, C.Name, C.Status, C.Category, C.Description FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID WHERE QRCode = @Qr", new { Qr = id }).FirstOrDefault();
+                var consumable = connection.Query<Consumable>("SELECT Q.QRCode, C.Name, C.Status, C.Category, C.Description, C.ImageCode FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID WHERE QRCode = @Qr", new { Qr = id }).FirstOrDefault();
                 return consumable;
             }
         }
@@ -39,13 +39,14 @@ namespace IsTag.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                connection.Execute("INSERT INTO QRCodes VALUES (@Qr, 'Consumable'); DECLARE @Id int = SCOPE_IDENTITY(); INSERT INTO Consumables VALUES (@Id, @Name, @Status, @Category, @Description)", 
+                connection.Execute("INSERT INTO QRCodes VALUES (@Qr, 'Consumable'); DECLARE @Id int = SCOPE_IDENTITY(); INSERT INTO Consumables VALUES (@Id, @Name, @Status, @Category, @Description, @ImageCode)", 
                     new {
                         Qr = consumable.QRCode,
                         Name = consumable.Name,
                         Status = consumable.Status,
                         Category = consumable.Category,
-                        Description = consumable.Description
+                        Description = consumable.Description,
+                        ImageCode = consumable.ImageCode
                     });
             }
         }

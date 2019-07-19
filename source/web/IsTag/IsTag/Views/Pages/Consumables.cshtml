@@ -4,16 +4,20 @@
 
     <div id="app-consumable">
 
-        <div class="consumable-newitem-container someobject-container">
+        <div class="consumable-newitem-container">
             <span class="consumable-label">Nome</span>
             <input class="consumable-textbox" type="text" v-model="newItem.name" />
 
             <span class="consumable-label">Descrizione</span>
             <input class="consumable-textbox" type="text" v-model="newItem.description" />
             <button v-on:click="createNewItem(newItem)">Nuovo oggetto consumabile</button>
-            <span class="error-label" v-if="errorMessagePresent">
-                {{ errorMessage }}
-            </span>
+
+            <transition name="fade">
+                <span class="error-label" v-if="errorMessagePresent">
+                    {{ errorMessage }}
+                </span>
+            </transition>
+
         </div>
 
         <div class="someobject-container-little">

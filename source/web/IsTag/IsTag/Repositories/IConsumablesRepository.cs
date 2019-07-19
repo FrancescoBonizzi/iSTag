@@ -10,5 +10,6 @@ namespace IsTag.Repositories
     {
         Consumable GetConsumable(string id);
         string SetMissingNotMissing(string id);
+        IEnumerable<Consumable> GetAllConsumables();
     }
 }

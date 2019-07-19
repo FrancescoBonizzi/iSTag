@@ -16,6 +16,15 @@ namespace IsTag.Repositories
             _connectionString = JsonConvert.DeserializeObject<ConnectionStrings>(File.ReadAllText("cs.json")).ISTag;
         }
 
+        public IEnumerable<Consumable> GetAllConsumables()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var consumable = connection.Query<Consumable>("SELECT Q.QRCode, C.Name, C.Status, C.Category, C.Description FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID");
+                return consumable;
+            }
+        }
+
         public Consumable GetConsumable(string id)
         {
             using (var connection = new SqlConnection(_connectionString))

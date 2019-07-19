@@ -47,52 +47,52 @@
 
 <script>
 
+    var allConsumables = [];
 
-    $(document).ready(function () {
-
-        var allConsumables = [];
+    function refreshData() {
 
         $.get("/Consumables/GetAll")
             .done(function (response) {
-
                 allConsumables = response;
-
-                var consumableApp = new Vue({
-                    el: '#app-consumable',
-                    data: {
-                        consumables: allConsumables,
-                        showAll: true
-                    },
-                    methods: {
-                        setMissing: function (id) {
-                            $.get("/Consumables/MissingNotMissing/" + id)
-                                .done(function (response) {
-                                    $.get("/Consumables/GetAll").done(function (response) {
-                                        allConsumables = response;
-                                        this.consumables = allConsumables;
-                                    });
-                                });
-                        }
-                    },
-                    watch: {
-                        showAll: function (newValue, oldValue) {
-                            if (newValue) {
-                                this.consumables = allConsumables;
-                            }
-                            else {
-                                this.consumables = allConsumables.filter(c => c.isMissing);
-                            }
-                        }
-                    }
-                });
-
+                if (consumableApp.showAll) {
+                    consumableApp.consumables = allConsumables;
+                }
+                else {
+                    consumableApp.consumables = allConsumables.filter(c => c.isMissing);
+                }
             })
             .fail(function () {
                 alert(response);
             });
 
+    };
+
+    var consumableApp = new Vue({
+        el: '#app-consumable',
+        data: {
+            consumables: allConsumables,
+            showAll: true
+        },
+        methods: {
+            setMissing: function (id) {
+                $.get("/Consumables/MissingNotMissing/" + id)
+                    .done(function (response) {
+                        refreshData();
+                    });
+            }
+        },
+        watch: {
+            showAll: function (newValue, oldValue) {
+                if (newValue) {
+                    this.consumables = allConsumables;
+                }
+                else {
+                    this.consumables = allConsumables.filter(c => c.isMissing);
+                }
+            }
+        }
     });
 
-
+    refreshData();
 
 </script>

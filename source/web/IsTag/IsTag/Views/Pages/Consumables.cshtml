@@ -3,21 +3,35 @@
 
 <div id="app-consumable">
 
+    <label class="checkbox-container">
+        Mostra tutti
+        <input type="checkbox" v-model="showAll" />
+        <span class="checkmark"></span>
+    </label>
+
     <ul>
 
         <transition-group name="list" tag="li">
-            <li class="consumable-container" v-for="consumable in consumables" v-bind:key="consumable.id">
+            <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container">
 
-                <div class="consumable-image">
+                <div class="consumable-image consumable-property">
 
                 </div>
 
-                <div class="consumable-name">
+                <div class="consumable-name consumable-property">
                     {{ consumable.name }}
                 </div>
 
-                <div class="consumable-description">
+                <div class="consumable-description consumable-property">
                     {{ consumable.description }}
+                </div>
+
+                <div class="consumable-property">
+                    <label class="checkbox-container">
+                        Mancante
+                        <input type="checkbox" v-model="consumable.isMissing" />
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
 
             </li>
@@ -30,21 +44,43 @@
 <script>
 
 
+    $(document).ready(function () {
 
-var consumableApp = new Vue({
-  el: '#app-consumable',
-  data: {
-	buttonAddText: "Add something",
-	buttonRemoveText: "Remove something",
-    todos: [
-        { id: index++, text: 'Learn JavaScript' },
-        { id: index++, text: 'Learn Vue' },
-        { id: index++, text: 'Build something awesome' }
-    ]
-  },
-  methods: {
+        var allConsumables = [];
 
-  }
-});
+        $.get("/Consumables/GetAll")
+            .done(function (response) {
+
+                allConsumables = response;
+
+                var consumableApp = new Vue({
+                    el: '#app-consumable',
+                    data: {
+                        consumables: allConsumables,
+                        showAll: true
+                    },
+                    methods: {
+
+                    },
+                    watch: {
+                        showAll: function (newValue, oldValue) {
+                            if (newValue) {
+                                this.consumables = allConsumables;
+                            }
+                            else {
+                                this.consumables = allConsumables.filter(c => c.isMissing);
+                            }
+                        }
+                    }
+                });
+
+            })
+            .fail(function () {
+                alert(response);
+            });
+
+    });
+
+
 
 </script>

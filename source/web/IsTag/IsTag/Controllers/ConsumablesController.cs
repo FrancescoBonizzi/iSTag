@@ -89,5 +89,34 @@ namespace IsTag.Controllers
             }
             return Ok(res);
         }
+
+        public class InsertConsumable
+        {
+            public string Name { get; set; }
+            public string Category { get; set; }
+            public string Description { get; set; }
+        }
+        [HttpPost]
+        public IActionResult CreateConsumable([FromBody] InsertConsumable consumable)
+        {
+            var c = new Entities.Consumable()
+            {
+                Category = consumable.Category,
+                Description = consumable.Description,
+                Name = consumable.Name,
+                Status = "NotMissing",
+                QRCode = Guid.NewGuid().ToString()
+            };
+
+            try
+            {
+                _consumablesRepository.InsertConsumable(c);
+                return Ok();
+            }
+            catch(Exception)
+            {
+                return BadRequest();
+            }
+        }
     }
 }

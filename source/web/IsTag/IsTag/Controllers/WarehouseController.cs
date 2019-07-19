@@ -30,6 +30,7 @@ namespace IsTag.Controllers
             public string Name { get; set; }
             public string Category { get; set; }
             public Owner CurrentOwner { get; set; }
+            public string Description { get; set; }
         }
         public IActionResult GetData(string id)
         {
@@ -41,7 +42,8 @@ namespace IsTag.Controllers
                     Email = "t.eeeeeeee@isolutions.it",
                     Name = "Tèèèèèèèèèèè!"
                 },
-                Category = "PC"
+                Category = "PC",
+                Description = "Questa descrizione descrive questo oggetto"
             });
         }
 

@@ -90,8 +90,8 @@
                     consumableApp.consumables = allConsumables.filter(c => c.isMissing);
                 }
 
-                errorMessage = "";
-                errorMessagePresent = false;
+                consumableApp.errorMessage = "";
+                consumableApp.errorMessagePresent = false;
             })
             .fail(function () {
                 errorMessage = response;
@@ -140,6 +140,8 @@
                     data: JSON.stringify(newItemObject),
                     contentType: "application/json",
                     success: function (data) {
+                        consumableApp.newItem.name = "";
+                        consumableApp.newItem.description = "";
                         refreshData();
                     },
                     error: function (data) {

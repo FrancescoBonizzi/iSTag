@@ -9,5 +9,6 @@ namespace IsTag.Repositories
     public interface IWarehouseRepository
     {
         WarehouseItem GetWarehouseItem(string id);
+        void InsertWarehouseItem(WarehouseItem warehouseItem);
     }
 }

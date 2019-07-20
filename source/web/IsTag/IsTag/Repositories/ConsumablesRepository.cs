@@ -21,7 +21,7 @@ namespace IsTag.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var consumable = connection.Query<Consumable>("SELECT Q.QRCode, C.Name, C.Status, C.Category, C.Description, C.ImageCode FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID");
+                var consumable = connection.Query<Consumable>("SELECT Q.QRCode, C.Name, C.Status, C.Category, C.Description, C.ImageCode FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID ORDER BY Q.QRCodeID DESC");
                 return consumable;
             }
         }

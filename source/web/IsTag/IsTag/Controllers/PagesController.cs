@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IsTag.Controllers
 {
+#if true
+    [AllowAnonymous]
+#endif
     [Authorize]
     public class PagesController : Controller
     {

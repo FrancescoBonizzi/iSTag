@@ -114,28 +114,30 @@ namespace IsTag.Controllers
 
         public IActionResult GetHistoryByObject(string id)
         {
-            return Ok(new[]
+            var own = _warehouseRepository.GetOwnershipHistoryOfItem(id);
+            return Ok(own.Select(a => new OwnershipData()
             {
-                new OwnershipData()
+                ChangeDate = a.When,
+                Owner = a.UserData == null ? null : new Owner()
                 {
-                    ChangeDate = new DateTime(2019, 1, 1, 13, 0, 0),
-                    Owner = null
-                },
-                new OwnershipData()
-                {
-                    ChangeDate = new DateTime(2019, 2, 1, 13, 0, 0),
-                    Owner = new Owner()
-                    {
-                        Email = "t.eeeeeeee@isolutions.it",
-                        Name = "Tèèèèèèèèèèè!"
-                    }
-                },
-                new OwnershipData()
-                {
-                    ChangeDate = new DateTime(2019, 3, 1, 13, 0, 0),
-                    Owner = null
+                    Email = a.UserData.Email,
+                    Name = a.UserData.Name
                 }
-            });
+            }));
+        }
+
+        public IActionResult GetHistoryByUser(string id)
+        {
+            var own = _warehouseRepository.GetOwnershipHistoryOfUser(id);
+            return Ok(own.Select(a => new OwnershipData()
+            {
+                ChangeDate = a.When,
+                Owner = a.UserData == null ? null : new Owner()
+                {
+                    Email = a.UserData.Email,
+                    Name = a.UserData.Name
+                }
+            }));
         }
 
         public class GiveData
@@ -147,8 +149,28 @@ namespace IsTag.Controllers
         [HttpPost]
         public IActionResult Give([FromBody] GiveData giveTo)
         {
-            var email = User.Identity.Name;
-            return Ok(_random.Next() % 2 == 0 ? true : false);
+            var elem = _warehouseRepository.GetWarehouseItem(giveTo.QRCode);
+
+            string target = null;
+
+            if(elem?.CurrentOwner?.Email == giveTo.Who)
+            {
+                target = null;
+            }
+            else
+            {
+                target = giveTo.Who;
+            }
+
+            _warehouseRepository.Give(giveTo.QRCode, target);
+
+            return Ok(target);
+        }
+
+        public IActionResult DeleteWarehouse(string id)
+        {
+            _warehouseRepository.Delete(id);
+            return Ok();
         }
     }
 }

@@ -27,17 +27,20 @@
 
     <ul>
 
-        <transition-group name="list" tag="li">
+        <transition-group name="list-complete" tag="li">
 
-            <li v-for="warehouseObject in warehouseObjects" v-bind:key="warehouseObject.qrCode" class="consumable-container someobject-container">
+            <li v-for="warehouseObject in warehouseObjects" v-bind:key="warehouseObject.qrCode" class="consumable-container someobject-container list-complete-item">
 
                 <div>
-                    <div class="consumable-image consumable-property">
-                        <img :src="warehouseObject.picture" width="160px" />
-                    </div>
+                    <a :href="'/Pages/WarehouseObjectHistory?id=' + warehouseObject.qrCode">
+                        <div class="consumable-image consumable-property">
+                            <img :src="warehouseObject.picture" width="160px" />
+                        </div>
+                    </a>
                 </div>
 
                 <div class="consumable-details">
+
                     <div class="consumable-name consumable-property">
                         {{ warehouseObject.name }}
                     </div>
@@ -52,13 +55,17 @@
 
 
                     <div class="consumable-description consumable-property">
-                        Proprietario: {{ warehouseObject.proprietario }}
+                        Proprietario: <b>{{ warehouseObject.proprietario }}</b>
                     </div>
 
                     <div class="line"></div>
 
 
                     <div class="buttons-container">
+
+                        <div class="consumable-property horizontally-spaced">
+                            <button class="button-red" v-on:click="removeItem(warehouseObject.qrCode)">Rimuovi</button>
+                        </div>
 
                         <div class="consumable-property horizontally-spaced">
                             <button class="button-black" v-on:click="printQr(warehouseObject.qrCode, warehouseObject.name, 1)">Stampa codice 1x</button>
@@ -122,6 +129,14 @@
                 window.open("/Pages/PrintQr?id=" + id + "&name=" + name + "&size=" + size);
 
             },
+
+            removeItem: function (id) {
+                $.get("/Warehouse/DeleteWarehouse/" + id)
+                    .done(function (response) {
+                        refreshData();
+                    });
+            },
+
             createNewItem: function (newItemObject) {
 
                 if (newItemObject.name == "" || newItemObject.category == "") {

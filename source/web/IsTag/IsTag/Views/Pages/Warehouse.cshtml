@@ -15,7 +15,7 @@
         <span class="consumable-label">Descrizione</span>
         <input class="consumable-textbox" type="text" v-model="newItem.description" />
 
-        <button class="button-green" v-on:click="createNewItem(newItem)">Nuovo oggetto consumabile</button>
+        <button class="button-green" v-on:click="createNewItem(newItem)">Nuovo oggetto di magazzino</button>
 
         <transition name="fade">
             <span class="error-label" v-if="errorMessagePresent">
@@ -33,7 +33,7 @@
 
                 <div>
                     <div class="consumable-image consumable-property">
-                        <img :src="consumable.image" width="160px" />
+                        <img :src="warehouseObject.picture" width="160px" />
                     </div>
                 </div>
 
@@ -50,14 +50,15 @@
                         {{ warehouseObject.description }}
                     </div>
 
+
                     <div class="consumable-description consumable-property">
-                        {{ warehouseObject.currentOwner.email }}
+                        Proprietario: {{ warehouseObject.proprietario }}
                     </div>
 
                     <div class="line"></div>
 
                     <div class="consumable-property">
-                        <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name)">Stampa codice</button>
+                        <button class="button-black" v-on:click="printQr(warehouseObject.qrCode, warehouseObject.name)">Stampa codice</button>
                     </div>
 
                 </div>
@@ -79,6 +80,7 @@
         $.get("/Warehouse/GetAll")
             .done(function (response) {
                 allWarehouseObjects = response;
+                warehouseApp.warehouseObjects = allWarehouseObjects;
                 warehouseApp.errorMessage = "";
                 warehouseApp.errorMessagePresent = false;
             })
@@ -92,12 +94,11 @@
     var warehouseApp = new Vue({
         el: '#app-warehouse',
         data: {
-            consumables: allWarehouseObjects,
-            showAll: true,
+            warehouseObjects: allWarehouseObjects,
             newItem: {
                 name: "",
-                description: "",
-                category: ""
+                category: "",
+                description: ""
             },
             errorMessage: "",
             errorMessagePresent: false
@@ -111,7 +112,7 @@
             },
             createNewItem: function (newItemObject) {
 
-                if (newItemObject.name == "") {
+                if (newItemObject.name == "" || newItemObject.category == "") {
                     this.errorMessage = "Campi inseriti non corretti";
                     this.errorMessagePresent = true;
                     return;
@@ -119,11 +120,12 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "/Warehouse/CreateWhat",
+                    url: "/Warehouse/Create",
                     data: JSON.stringify(newItemObject),
                     contentType: "application/json",
                     success: function (data) {
                         warehouseApp.newItem.name = "";
+                        warehouseApp.newItem.category = "";
                         warehouseApp.newItem.description = "";
                         refreshData();
                     },
@@ -138,5 +140,6 @@
     });
 
     refreshData();
+    window.setInterval(refreshData, 1000);
 
 </script>

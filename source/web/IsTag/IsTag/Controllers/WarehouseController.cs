@@ -36,7 +36,11 @@ namespace IsTag.Controllers
             public Owner CurrentOwner { get; set; }
             public string Description { get; set; }
             public string Picture { get; set; }
+            public string Proprietario => CurrentOwner != null
+                ? CurrentOwner.Email
+                : "Nessun proprietario";
         }
+
         public IActionResult GetData(string id)
         {
             var wh = _warehouseRepository.GetWarehouseItem(id);
@@ -60,6 +64,7 @@ namespace IsTag.Controllers
             public string Category { get; set; }
             public string Description { get; set; }
         }
+
         [HttpPost]
         public IActionResult Create([FromBody] InsertWarehouse request)
         {
@@ -88,6 +93,7 @@ namespace IsTag.Controllers
             public DateTime ChangeDate { get; set; }
             public Owner Owner { get; set; }
         }
+
         public IActionResult GetAll()
         {
             var d = _warehouseRepository.GetAll();
@@ -105,6 +111,7 @@ namespace IsTag.Controllers
                 }
             }));
         }
+
         public IActionResult GetHistoryByObject(string id)
         {
             return Ok(new[]
@@ -136,6 +143,7 @@ namespace IsTag.Controllers
             public string QRCode { get; set; }
             public string Who { get; set; }
         }
+
         [HttpPost]
         public IActionResult Give([FromBody] GiveData giveTo)
         {

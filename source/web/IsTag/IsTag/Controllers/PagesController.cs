@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IsTag.Controllers
 {
-#if true
+#if DEBUG
     [AllowAnonymous]
+#else
+    [Authorize]
 #endif
-    //[Authorize]
     public class PagesController : Controller
     {
         public IActionResult Index()

@@ -36,7 +36,7 @@ namespace IsTag.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var wh = connection.Query<WarehouseItemTemp>("SELECT Q.QRCode, W.Name, W.Category, W.Description, W.ImageCode, U.Name as OwnerName, U.Email as OwnerEmail FROM Warehouse W INNER JOIN QRCodes Q ON W.QRCodeID = Q.QRCodeID LEFT JOIN Users U ON U.UserID = (SELECT TOP 1 UserID FROM WarehouseUpdates WU WHERE WU.QRCodeID = Q.QRCodeID) ORDER BY Q.QRCodeID DESC");
+                var wh = connection.Query<WarehouseItemTemp>("SELECT Q.QRCode, W.Name, W.Category, W.Description, W.ImageCode, U.Name as OwnerName, U.Email as OwnerEmail FROM Warehouse W INNER JOIN QRCodes Q ON W.QRCodeID = Q.QRCodeID LEFT JOIN Users U ON U.UserID = (SELECT TOP 1 UserID FROM WarehouseUpdates WU WHERE WU.QRCodeID = Q.QRCodeID ORDER BY WU.[When] DESC) ORDER BY Q.QRCodeID DESC");
                 return wh.Select(a => new WarehouseItem()
                 {
                     Category = a.Category,

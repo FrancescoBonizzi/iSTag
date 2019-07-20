@@ -625,6 +625,27 @@ h2 {
         background-color: #8ffc6a;
     }
 
+.button-red {
+    height: 32px;
+    font-size: 13px;
+    background-color: #b5003d;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 8px 0;
+    border: none;
+    border-radius: 2px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: background-color ease 0.4s;
+    box-shadow: 0 1px 1px rgba(97,127,152,.2), 1px 0 0 rgba(97,127,152,.1), -1px 0 0 rgba(97,127,152,.1);
+}
+
+    .button-red:hover {
+        transition: background-color ease 0.4s;
+        background-color: #e2004c;
+    }
+
 .button-black {
     height: 32px;
     font-size: 13px;
@@ -828,6 +849,20 @@ a {
 .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
     opacity: 0;
     transform: translateY(30px);
+}
+
+.list-complete-item {
+    transition: all 1s;
+}
+
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.list-complete-leave-active {
+    position: absolute;
 }
 
 .fade-enter-active, .fade-leave-active {

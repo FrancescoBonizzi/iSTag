@@ -22,14 +22,14 @@
                 {{ errorMessage }}
             </span>
         </transition>
-
+        
     </div>
 
     <ul>
 
-        <transition-group name="list" tag="li">
+        <transition-group name="list-complete" tag="li">
 
-            <li v-for="warehouseObject in warehouseObjects" v-bind:key="warehouseObject.qrCode" class="consumable-container someobject-container">
+            <li v-for="warehouseObject in warehouseObjects" v-bind:key="warehouseObject.qrCode" class="consumable-container someobject-container list-complete-item">
 
                 <div>
                     <div class="consumable-image consumable-property">

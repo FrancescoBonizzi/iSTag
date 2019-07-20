@@ -30,9 +30,9 @@
 
         <ul>
 
-            <transition-group name="list" tag="li">
+            <transition-group name="list-complete" tag="li">
 
-                <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container someobject-container">
+                <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container someobject-container list-complete-item">
 
                     <div>
                         <div class="consumable-image consumable-property">
@@ -60,6 +60,10 @@
                         </div>
 
                         <div class="buttons-container">
+                            <div class="consumable-property horizontally-spaced">
+                                <button class="button-red" v-on:click="removeItem(consumable.qrCode)">Rimuovi</button>
+                            </div>
+
                             <div class="consumable-property horizontally-spaced">
                                 <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name, 1)">Stampa codice 1x</button>
                             </div>
@@ -135,6 +139,12 @@
 
                 window.open("/Pages/PrintQr?id=" + id + "&name=" + name + "&size=" + size);
 
+            },
+            removeItem: function (id) {
+                $.get("/Consumables/DeleteConsumable/" + id)
+                    .done(function (response) {
+                        refreshData();
+                    });
             },
             createNewItem: function (newItemObject) {
 

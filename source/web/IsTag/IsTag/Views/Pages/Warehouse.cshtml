@@ -3,3 +3,140 @@
     <h2>Gestisci il magazzino aziendale</h2>
 </div>
 
+<div id="app-warehouse">
+
+    <div class="consumable-newitem-container">
+        <span class="consumable-label">Nome</span>
+        <input class="consumable-textbox" type="text" v-model="newItem.name" />
+
+        <span class="consumable-label">Categoria</span>
+        <input class="consumable-textbox" type="text" v-model="newItem.category" />
+
+        <span class="consumable-label">Descrizione</span>
+        <input class="consumable-textbox" type="text" v-model="newItem.description" />
+
+        <button class="button-green" v-on:click="createNewItem(newItem)">Nuovo oggetto consumabile</button>
+
+        <transition name="fade">
+            <span class="error-label" v-if="errorMessagePresent">
+                {{ errorMessage }}
+            </span>
+        </transition>
+
+    </div>
+
+    <ul>
+
+        <transition-group name="list" tag="li">
+
+            <li v-for="warehouseObject in warehouseObjects" v-bind:key="warehouseObject.qrCode" class="consumable-container someobject-container">
+
+                <div>
+                    <div class="consumable-image consumable-property">
+                        <img :src="consumable.image" width="160px" />
+                    </div>
+                </div>
+
+                <div class="consumable-details">
+                    <div class="consumable-name consumable-property">
+                        {{ warehouseObject.name }}
+                    </div>
+
+                    <div class="consumable-name consumable-property">
+                        {{ warehouseObject.category }}
+                    </div>
+
+                    <div class="consumable-description consumable-property">
+                        {{ warehouseObject.description }}
+                    </div>
+
+                    <div class="consumable-description consumable-property">
+                        {{ warehouseObject.currentOwner.email }}
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="consumable-property">
+                        <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name)">Stampa codice</button>
+                    </div>
+
+                </div>
+
+            </li>
+        </transition-group>
+
+    </ul>
+
+</div>
+
+
+<script>
+
+    var allWarehouseObjects = [];
+
+    function refreshData() {
+
+        $.get("/Warehouse/GetAll")
+            .done(function (response) {
+                allWarehouseObjects = response;
+                warehouseApp.errorMessage = "";
+                warehouseApp.errorMessagePresent = false;
+            })
+            .fail(function () {
+                errorMessage = response;
+                errorMessagePresent = true;
+            });
+
+    };
+
+    var warehouseApp = new Vue({
+        el: '#app-warehouse',
+        data: {
+            consumables: allWarehouseObjects,
+            showAll: true,
+            newItem: {
+                name: "",
+                description: "",
+                category: ""
+            },
+            errorMessage: "",
+            errorMessagePresent: false
+        },
+        methods: {
+
+            printQr: function (id, name) {
+
+                window.open("/Pages/PrintQr?id=" + id + "&name=" + name);
+
+            },
+            createNewItem: function (newItemObject) {
+
+                if (newItemObject.name == "") {
+                    this.errorMessage = "Campi inseriti non corretti";
+                    this.errorMessagePresent = true;
+                    return;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Warehouse/CreateWhat",
+                    data: JSON.stringify(newItemObject),
+                    contentType: "application/json",
+                    success: function (data) {
+                        warehouseApp.newItem.name = "";
+                        warehouseApp.newItem.description = "";
+                        refreshData();
+                    },
+                    error: function (data) {
+
+                        warehouseApp.errorMessage = data.responseText;
+                        warehouseApp.errorMessagePresent = true;
+                    }
+                });
+            }
+        }
+    });
+
+    refreshData();
+
+</script>

@@ -7,7 +7,7 @@ namespace IsTag.Controllers
 #if true
     [AllowAnonymous]
 #endif
-    [Authorize]
+    //[Authorize]
     public class PagesController : Controller
     {
         public IActionResult Index()

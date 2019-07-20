@@ -13,6 +13,7 @@
             crossorigin="anonymous"></script>
     <link href="~/css/style.css" rel="stylesheet" />
     <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/fontawesome.min.css" rel="stylesheet" />
 
 </head>
 
@@ -21,16 +22,18 @@
     <nav id="navigation">
 
         <img class="logo" src="~/images/logo_transparent_black.png" />
-        <a href="/Pages/Warehouse" title="Magazzino">Magazzino</a>
-        <a href="/Pages/Consumables" title="Consumabili">Consumabili</a>
 
+        <a class="nav-element" href="/Pages/Warehouse" title="Magazzino"><i class="fas fa-warehouse icon-space"></i> <span><span>Magazzino</span></a>
+        <div class="nav-separator"></div>
+        <a class="nav-element" href="/Pages/Consumables" title="Consumabili"><i class="fas fa-toilet-paper icon-space"></i> <span>Consumabili</span></a>
+        <div class="nav-separator"></div>
+        <a class="nav-element" href="/AzureAD/Account/SignOut" title="Esci"><i class="fas fa-sign-out-alt button-signout icon-space"></i> <span>Esci</span></a>
     </nav>
 
     <div id="main-content">
 
         <div id="profile-content">
 
-            <a class="profile-item" href="/AzureAD/Account/SignOut" title="Esci">Esci</a>
             <p class="profile-item" title="Benvenuto @User.Identity.Name">@User.Identity.Name</p>
 
         </div>

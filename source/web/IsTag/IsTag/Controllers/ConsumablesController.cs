@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace IsTag.Controllers
@@ -60,7 +59,7 @@ namespace IsTag.Controllers
                 QRCode = a.QRCode,
                 Status = a.Status,
                 Image = $"/Images/Image/{a.ImageCode}"
-            })); ;
+            }));
         }
 
         public IActionResult GetData(string id)

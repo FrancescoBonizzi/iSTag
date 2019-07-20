@@ -92,6 +92,7 @@ namespace IsTag.Controllers
         {
             public DateTime ChangeDate { get; set; }
             public Owner Owner { get; set; }
+            public string ObjectName { get; set; }
         }
 
         public IActionResult GetAll()
@@ -122,7 +123,8 @@ namespace IsTag.Controllers
                 {
                     Email = a.UserData.Email,
                     Name = a.UserData.Name
-                }
+                },
+                ObjectName = a.ObjectName
             }));
         }
 
@@ -136,7 +138,8 @@ namespace IsTag.Controllers
                 {
                     Email = a.UserData.Email,
                     Name = a.UserData.Name
-                }
+                },
+                ObjectName = a.ObjectName
             }));
         }
 

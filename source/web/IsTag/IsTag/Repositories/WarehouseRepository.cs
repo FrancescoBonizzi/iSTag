@@ -92,12 +92,13 @@ namespace IsTag.Repositories
             public DateTime When { get; set; }
             public string Name { get; set; }
             public string Email { get; set; }
+            public string ObjectName { get; set; }
         }
         public IEnumerable<Ownership> GetOwnershipHistoryOfItem(string id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var tmp = connection.Query<OwnershipTemp>("SELECT Q.QRCode, WU.[When], U.Name, U.Email FROM QRCodes Q INNER JOIN WarehouseUpdates WU ON Q.QRCodeID = WU.QRCodeID LEFT JOIN Users U ON WU.UserID = U.UserID WHERE Q.QRCode = @Id ORDER BY WU.[When] DESC", new { Id = id });
+                var tmp = connection.Query<OwnershipTemp>("SELECT TOP 10 Q.QRCode, WU.[When], U.Name, U.Email, W.Name as ObjectName FROM QRCodes Q INNER JOIN WarehouseUpdates WU ON Q.QRCodeID = WU.QRCodeID INNER JOIN Warehouse W ON Q.QRcodeID = W.QRCodeID LEFT JOIN Users U ON WU.UserID = U.UserID WHERE Q.QRCode = @Id ORDER BY WU.[When] DESC", new { Id = id });
                 return tmp.Select(a => new Ownership()
                 {
                     QRCode = a.QRCode,
@@ -106,7 +107,8 @@ namespace IsTag.Repositories
                     {
                         Email = a.Email,
                         Name = a.Name
-                    } : null
+                    } : null,
+                    ObjectName = a.ObjectName
                 });
             }
         }
@@ -116,7 +118,7 @@ namespace IsTag.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var tmp = connection.Query<OwnershipTemp>("SELECT Q.QRCode, WU.[When], U.Name, U.Email FROM QRCodes Q INNER JOIN WarehouseUpdates WU ON Q.QRCodeID = WU.QRCodeID LEFT JOIN Users U ON WU.UserID = U.UserID WHERE U.Email = @Email OR (U.Email IS NULL AND @Email = (SELECT TOP 1 U2.Email FROM Users U2 INNER JOIN WarehouseUpdates WU2 ON U2.UserID = WU2.UserID WHERE WU2.[When] < WU.[When] AND WU.QRCodeID = WU2.QRCodeId ORDER BY WU2.[When] DESC)) ORDER BY WU.[When] DESC", new { Email = id });
+                var tmp = connection.Query<OwnershipTemp>("SELECT TOP 10 Q.QRCode, WU.[When], U.Name, U.Email, W.Name as ObjectName FROM QRCodes Q INNER JOIN WarehouseUpdates WU ON Q.QRCodeID = WU.QRCodeID INNER JOIN Warehouse W ON WU.QRCodeID = Q.QRCodeID LEFT JOIN Users U ON WU.UserID = U.UserID WHERE U.Email = @Email OR (U.Email IS NULL AND @Email = (SELECT TOP 1 U2.Email FROM Users U2 INNER JOIN WarehouseUpdates WU2 ON U2.UserID = WU2.UserID WHERE WU2.[When] < WU.[When] AND WU.QRCodeID = WU2.QRCodeId ORDER BY WU2.[When] DESC)) ORDER BY WU.[When] DESC", new { Email = id });
                 return tmp.Select(a => new Ownership()
                 {
                     QRCode = a.QRCode,
@@ -125,7 +127,8 @@ namespace IsTag.Repositories
                     {
                         Email = a.Email,
                         Name = a.Name
-                    } : null
+                    } : null,
+                    ObjectName = a.ObjectName
                 });
             }
         }

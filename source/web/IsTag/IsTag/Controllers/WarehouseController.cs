@@ -93,7 +93,20 @@ namespace IsTag.Controllers
 
         public IActionResult GetAll()
         {
-            return Ok(new WarehouseData[0]);
+            var d = _warehouseRepository.GetAll();
+            return Ok(d.Select(a => new WarehouseData()
+            {
+                Category = a.Category,
+                Description = a.Description,
+                Name = a.Name,
+                Picture = $"/Images/Image/{a.ImageCode}",
+                QRCode = a.QRCode,
+                CurrentOwner = a.CurrentOwner == null ? null : new Owner()
+                {
+                    Email = a.CurrentOwner.Email,
+                    Name = a.CurrentOwner.Name
+                }
+            }));
         }
 
         public IActionResult GetHistoryByObject(string id)

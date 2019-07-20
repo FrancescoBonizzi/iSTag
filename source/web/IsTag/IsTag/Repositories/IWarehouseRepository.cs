@@ -10,5 +10,6 @@ namespace IsTag.Repositories
     {
         WarehouseItem GetWarehouseItem(string id);
         void InsertWarehouseItem(WarehouseItem warehouseItem);
+        IEnumerable<WarehouseItem> GetAll();
     }
 }

@@ -19,6 +19,8 @@ namespace IsTag.Repositories
             _connectionString = JsonConvert.DeserializeObject<ConnectionStrings>(File.ReadAllText("cs.json")).ISTag;
         }
 
+        
+
         public class WarehouseItemTemp
         {
             public string OwnerName { get; set; }
@@ -60,7 +62,8 @@ namespace IsTag.Repositories
                 var wh = connection.Query<WarehouseItem>("SELECT Q.QRCode, W.Name, W.Category, W.Description, W.ImageCode FROM Warehouse W INNER JOIN QRCodes Q ON W.QRCodeID = Q.QRCodeID WHERE Q.QRCode = @Qr", new { Qr = id }).FirstOrDefault();
                 var up = connection.Query<WarehouseItem.Owner>("SELECT U.Name, U.Email FROM Users U WHERE U.UserID = (SELECT TOP 1 UserID FROM WarehouseUpdates WHERE QRCodeID = (SELECT QRCodeID FROM QRCodes WHERE QRCode = @Id) ORDER BY [When] DESC)", new { Id = id }).FirstOrDefault();
 
-                wh.CurrentOwner = up;
+                if(wh != null)
+                    wh.CurrentOwner = up;
 
                 return wh;
             }

@@ -33,7 +33,7 @@
 
                 <div>
                     <div class="consumable-image consumable-property">
-                        <img :src="consumable.image" width="160px" />
+                        <img :src="warehouseObject.picture" width="160px" />
                     </div>
                 </div>
 
@@ -50,14 +50,15 @@
                         {{ warehouseObject.description }}
                     </div>
 
+
                     <div class="consumable-description consumable-property">
-                        {{ warehouseObject.currentOwner.email }}
+                        Proprietario: {{ warehouseObject.proprietario }}
                     </div>
 
                     <div class="line"></div>
 
                     <div class="consumable-property">
-                        <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name)">Stampa codice</button>
+                        <button class="button-black" v-on:click="printQr(warehouseObject.qrCode, warehouseObject.name)">Stampa codice</button>
                     </div>
 
                 </div>
@@ -79,6 +80,7 @@
         $.get("/Warehouse/GetAll")
             .done(function (response) {
                 allWarehouseObjects = response;
+                warehouseApp.warehouseObjects = allWarehouseObjects;
                 warehouseApp.errorMessage = "";
                 warehouseApp.errorMessagePresent = false;
             })
@@ -138,6 +140,6 @@
     });
 
     refreshData();
-    window.setInterval(refreshData, 1000);
+   // window.setInterval(refreshData, 1000);
 
 </script>

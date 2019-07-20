@@ -36,6 +36,9 @@ namespace IsTag.Controllers
             public Owner CurrentOwner { get; set; }
             public string Description { get; set; }
             public string Picture { get; set; }
+            public string Proprietario => CurrentOwner != null
+                ? CurrentOwner.Email
+                : "Nessun proprietario";
         }
 
         public IActionResult GetData(string id)

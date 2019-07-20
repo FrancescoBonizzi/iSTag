@@ -22,7 +22,7 @@
                 {{ errorMessage }}
             </span>
         </transition>
-        
+
     </div>
 
     <ul>
@@ -38,6 +38,7 @@
                 </div>
 
                 <div class="consumable-details">
+
                     <div class="consumable-name consumable-property">
                         {{ warehouseObject.name }}
                     </div>
@@ -59,6 +60,10 @@
 
 
                     <div class="buttons-container">
+
+                        <div class="consumable-property horizontally-spaced">
+                            <button class="button-red" v-on:click="removeItem(warehouseObject.qrCode)">Rimuovi</button>
+                        </div>
 
                         <div class="consumable-property horizontally-spaced">
                             <button class="button-black" v-on:click="printQr(warehouseObject.qrCode, warehouseObject.name, 1)">Stampa codice 1x</button>
@@ -122,6 +127,14 @@
                 window.open("/Pages/PrintQr?id=" + id + "&name=" + name + "&size=" + size);
 
             },
+
+            removeItem: function (id) {
+                $.get("/Warehouse/DeleteWarehouse/" + id)
+                    .done(function (response) {
+                        refreshData();
+                    });
+            },
+
             createNewItem: function (newItemObject) {
 
                 if (newItemObject.name == "" || newItemObject.category == "") {

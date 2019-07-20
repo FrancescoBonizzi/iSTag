@@ -536,7 +536,7 @@ h2 {
 
 .warehouse-history-details-object {
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
     background-color: white;
     border-radius: 20px;
     padding: 10px 30px 10px 30px;
@@ -685,6 +685,18 @@ h2 {
         transition: background-color ease 0.4s;
         background-color: #e2004c;
     }
+
+.warehouse-icon {
+    align-self: center;
+}
+
+.foreground-green {
+    color: springgreen;
+}
+
+.foreground-red {
+    color: crimson;
+}
 
 .button-black {
     height: 32px;

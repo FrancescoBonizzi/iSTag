@@ -584,6 +584,9 @@ h2 {
     display: block;
 }
 
+.horizontally-spaced {
+    margin-right: 10px;
+}
 
 .button-green {
     height: 32px;
@@ -678,8 +681,36 @@ a {
     justify-items: center;
 }
 
-.qrImage {
+.qrBorder {
+    border: 1px dashed gray;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    padding-bottom: 30px;
+}
+
+.qrImage1x {
+    width: 100px;
+}
+
+.qrImage2x {
+    width: 200px;
+}
+
+.qrImage3x {
     width: 500px;
+}
+
+.qrTitle1x {
+    font-size: 12px !important;
+}
+
+.qrTitle2x {
+    font-size: 16px !important;
+}
+
+.qrTitle3x {
+    font-size: 30px !important;
 }
 
 .qtTitle {
@@ -690,6 +721,9 @@ a {
     background: white;
 }
 
+.buttons-container {
+    display: flex;
+}
 
 /* Controls */
 /* Checkbox */

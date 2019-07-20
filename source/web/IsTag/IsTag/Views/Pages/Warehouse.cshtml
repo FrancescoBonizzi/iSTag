@@ -57,8 +57,20 @@
 
                     <div class="line"></div>
 
-                    <div class="consumable-property">
-                        <button class="button-black" v-on:click="printQr(warehouseObject.qrCode, warehouseObject.name)">Stampa codice</button>
+
+                    <div class="buttons-container">
+
+                        <div class="consumable-property horizontally-spaced">
+                            <button class="button-black" v-on:click="printQr(warehouseObject.qrCode, warehouseObject.name, 1)">Stampa codice 1x</button>
+                        </div>
+
+                        <div class="consumable-property horizontally-spaced">
+                            <button class="button-black" v-on:click="printQr(warehouseObject.qrCode, warehouseObject.name, 2)">Stampa codice 2x</button>
+                        </div>
+
+                        <div class="consumable-property horizontally-spaced">
+                            <button class="button-black" v-on:click="printQr(warehouseObject.qrCode, warehouseObject.name, 3)">Stampa codice 3x</button>
+                        </div>
                     </div>
 
                 </div>
@@ -105,9 +117,9 @@
         },
         methods: {
 
-            printQr: function (id, name) {
+            printQr: function (id, name, size) {
 
-                window.open("/Pages/PrintQr?id=" + id + "&name=" + name);
+                window.open("/Pages/PrintQr?id=" + id + "&name=" + name + "&size=" + size);
 
             },
             createNewItem: function (newItemObject) {

@@ -41,5 +41,10 @@ namespace IsTag.Controllers
         {
             return View(new PrintQrViewModel(id, name, size));
         }
+
+        public IActionResult WarehouseObjectHistory(string id)
+        {
+            return View(new WarehouseObjectHistoryViewModel(id));
+        }
     }
 }

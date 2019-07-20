@@ -80,7 +80,7 @@ namespace IsTag.Controllers
                     QRCode = Guid.NewGuid().ToString()
                 });
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return BadRequest();
             }
@@ -90,8 +90,12 @@ namespace IsTag.Controllers
 
         public class OwnershipData
         {
+            public string QrCode { get; set; }
             public DateTime ChangeDate { get; set; }
             public Owner Owner { get; set; }
+            public string Proprietario => Owner != null
+                ? Owner.Email
+                : "Nessun proprietario";
         }
 
         public IActionResult GetAll()
@@ -117,6 +121,7 @@ namespace IsTag.Controllers
             var own = _warehouseRepository.GetOwnershipHistoryOfItem(id);
             return Ok(own.Select(a => new OwnershipData()
             {
+                QrCode = id,
                 ChangeDate = a.When,
                 Owner = a.UserData == null ? null : new Owner()
                 {
@@ -153,7 +158,7 @@ namespace IsTag.Controllers
 
             string target = null;
 
-            if(elem?.CurrentOwner?.Email == giveTo.Who)
+            if (elem?.CurrentOwner?.Email == giveTo.Who)
             {
                 target = null;
             }

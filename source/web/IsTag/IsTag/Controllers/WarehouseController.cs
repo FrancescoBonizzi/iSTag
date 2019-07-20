@@ -96,6 +96,7 @@ namespace IsTag.Controllers
             public string Proprietario => Owner != null
                 ? Owner.Email
                 : "Nessun proprietario";
+            public string ObjectName { get; set; }
         }
 
         public IActionResult GetAll()
@@ -127,7 +128,8 @@ namespace IsTag.Controllers
                 {
                     Email = a.UserData.Email,
                     Name = a.UserData.Name
-                }
+                },
+                ObjectName = a.ObjectName
             }));
         }
 
@@ -141,7 +143,8 @@ namespace IsTag.Controllers
                 {
                     Email = a.UserData.Email,
                     Name = a.UserData.Name
-                }
+                },
+                ObjectName = a.ObjectName
             }));
         }
 

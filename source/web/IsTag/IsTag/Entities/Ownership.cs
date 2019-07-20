@@ -15,5 +15,6 @@ namespace IsTag.Entities
         public string QRCode { get; set; }
         public DateTime When { get; set; }
         public Owner UserData { get; set; }
+        public string ObjectName { get; set; }
     }
 }

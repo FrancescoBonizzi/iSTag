@@ -1,0 +1,9 @@
+use_frameworks!
+ 
+target 'isTag' do
+  pod 'MSAL', '~> 0.4.0'
+  pod 'BulletinBoard'
+  pod "BouncyLayout"
+  pod 'AZDialogView'
+  pod 'LoadingShimmer'
+end

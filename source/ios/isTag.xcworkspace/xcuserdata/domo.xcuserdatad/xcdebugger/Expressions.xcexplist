@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in LoginVC.acquireTokenSilently(_:):LoginVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "result.accessToken">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OggettoVC.loadData():OggettoVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.objectType">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OggettoVC.prendiButton(_:):OggettoVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.qrCode">
+            </PersistentString>
+            <PersistentString
+               value = "self.objectType">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginVC.acquireTokenInteractively():LoginVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "result.accessToken">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in OggettoVC.loadData():OggettoVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response?.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginVC.callAlive(_:):LoginVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.accessToken">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CameraVC.metadataOutput(_:didOutput:from:):CameraVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response">
+            </PersistentString>
+            <PersistentString
+               value = "metadataObj.stringValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CameraVC.prepare(for:sender:):CameraVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender as! String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in Requests.isAlive(token:):Requests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "token">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in OggettoVC.loadData():OggettoVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.ownerView.isHidden">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

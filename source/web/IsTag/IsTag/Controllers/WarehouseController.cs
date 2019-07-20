@@ -166,5 +166,11 @@ namespace IsTag.Controllers
 
             return Ok(target);
         }
+
+        public IActionResult DeleteWarehouse(string id)
+        {
+            _warehouseRepository.Delete(id);
+            return Ok();
+        }
     }
 }

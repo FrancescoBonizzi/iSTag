@@ -137,5 +137,15 @@ namespace IsTag.Repositories
                 connection.Execute("INSERT INTO WarehouseUpdates SELECT QRCodeID = (SELECT QRCodeID FROM QRCodes WHERE QRCode = @What), UserID = (SELECT UserID FROM Users WHERE Email = @Who), SYSDATETIME()", new { Who = who, What = what });
             }
         }
+
+        public void Delete(string id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Execute("DELETE FROM WarehouseUpdates WHERE QRCodeID = (SELECT QRCodeID FROM QRCodes WHERE QRCode = @Qr)", new { Qr = id });
+                connection.Execute("DELETE FROM Warehouse WHERE QRCodeID = (SELECT QRCodeID FROM QRCodes WHERE QRCode = @Qr)", new { Qr = id });
+                connection.Execute("DELETE FROM QRCodes WHERE QRCode = @Qr", new { Qr = id });
+            }
+        }
     }
 }

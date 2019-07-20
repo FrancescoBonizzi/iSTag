@@ -16,5 +16,6 @@ namespace IsTag.Repositories
 
 
         void Give(string what, string who);
+        void Delete(string id);
     }
 }

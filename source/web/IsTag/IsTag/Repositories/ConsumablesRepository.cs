@@ -60,5 +60,14 @@ namespace IsTag.Repositories
                 return val;
             }
         }
+
+        public void Delete(string id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Execute("DELETE FROM Consumables WHERE QRCodeID = (SELECT QRCodeID FROM QRCodes WHERE QRCode = @Qr)", new { Qr = id });
+                connection.Execute("DELETE FROM QRCodes WHERE QRCode = @Qr", new { Qr = id });
+            }
+        }
     }
 }

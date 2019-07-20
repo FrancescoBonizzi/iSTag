@@ -122,5 +122,11 @@ namespace IsTag.Controllers
                 return BadRequest($"Generic error: {ex.Message}");
             }
         }
+
+        public IActionResult DeleteConsumable(string id)
+        {
+            _consumablesRepository.Delete(id);
+            return Ok();
+        }
     }
 }

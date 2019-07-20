@@ -43,12 +43,19 @@
 
                 <li v-for="objectHistory in objectHistories" v-bind:key="objectHistory.changeDate" class="warehouse-history-details-object list-complete-item">
 
-                    <div class="consumable-description">
-                        Proprietario: <b>{{ objectHistory.proprietario }}</b>
+                    <div>
+                        <div class="consumable-description">
+                            Proprietario: <b>{{ objectHistory.proprietario }}</b>
+                        </div>
+
+                        <div class="consumable-date">
+                            Cambio possesso: {{ objectHistory.changeDate }}
+                        </div>
                     </div>
 
-                    <div class="consumable-date">
-                        Cambio possesso: {{ objectHistory.changeDate }}
+                    <div class="warehouse-icon">
+                        <i v-if="objectHistory.hasProprietario" class="fas fa-arrow-up foreground-green"></i>
+                        <i v-if="!objectHistory.hasProprietario" class="fas fa-arrow-down foreground-red"></i>
                     </div>
 
                 </li>

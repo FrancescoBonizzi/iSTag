@@ -96,6 +96,7 @@ namespace IsTag.Controllers
             public string Proprietario => Owner != null
                 ? Owner.Email
                 : "Nessun proprietario";
+            public bool HasProprietario => Owner != null;
             public string ObjectName { get; set; }
         }
 

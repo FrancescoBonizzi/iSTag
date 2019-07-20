@@ -1,9 +1,4 @@
-﻿@font-face {
-    font-family: 'Lato';
-    src: url('../webfonts/lato-regular-webfont.woff2') format('woff2'), url('../webfonts/lato-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+﻿
 
 html {
     margin: 0;
@@ -15,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Ubuntu Mono', monospace;
     letter-spacing: 0.6px;
     line-height: 24px;
     background: #ebebeb;
@@ -501,10 +496,6 @@ figcaption {
     padding-left: 50px;
 }
 
-.logo {
-    width: 130px;
-    justify-self: center;
-}
 
 h1 {
     font-size: 40px;
@@ -548,7 +539,6 @@ h2 {
 }
 
 .consumable-description {
-    
 }
 
 .line {
@@ -605,6 +595,13 @@ h2 {
 
 .horizontally-spaced {
     margin-right: 10px;
+}
+
+.our-apps {
+    display: block;
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .button-green {
@@ -748,6 +745,10 @@ a {
     text-align: center;
 }
 
+.index-pic {
+    width: 150px;
+}
+
 /* Controls */
 /* Checkbox */
 /* The container */
@@ -836,3 +837,38 @@ a {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
 }
+
+.index-paragraph {
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.index-list {
+    
+    list-style-type: square !important;
+}
+
+.index-content {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+
+.bigThing {
+    font-size: 20px;
+}
+
+.logo {
+    justify-self: center;
+}
+
+
+.logo {
+    width: 130px;
+    transition: all 0.3s ease;
+}
+
+    .logo:hover {
+        width: 140px;
+        transition: all 0.3s ease;
+    }

@@ -11,8 +11,9 @@ class Constants {
     static let azureEndpoint = "https://istag.azurewebsites.net"
     static let genericObjectApiEndpoint = "/GenericObjectApi/Get/"
     static let getWarhouseData = "/warehouse/getdata/"
-    static let getWarhouseHistory = "/warehouse/gethistorybyobject/"
+    static let getWarhouseHistoryByObject = "/warehouse/gethistorybyobject/"
     static let giveWarehouse = "/Warehouse/give/"
+    static let getWarehouseHistoryByUser = "/warehouse/gethistorybyuser/"
     
     static let getConsumableData = "/consumables/getdata/"
     static let getConsumableMissingNotMissing = "/Consumables/MissingNotMissing/"

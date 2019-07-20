@@ -22,11 +22,15 @@ class TestMockup: RequestProtocol {
         print("WarehouseGetData from Test")
     }
 
-    func warehouseGetHistory(token: String, qRCode: String) {
-        print("WarehouseGetData from Test")
+    func warehouseGetHistoryByOBject(token: String, qRCode: String, completation: @escaping (WarehouseHistoryObject?) -> ()) {
+        print("warehouseGetHistoryByOBject from Test")
     }
     
-    func warehouseGive(token: String, qRCode: String, who: String, completation: @escaping (Bool) -> ()) {
+    func warehouseGetHistoryByUser(token: String, email: String, completation: @escaping (WarehouseHistoryObject?) -> ()) {
+        print("warehouseGetHistoryByUser from Test")
+    }
+    
+    func warehouseGive(token: String, qRCode: String, who: String, completation: @escaping (String) -> ()) {
         print("WarehouseGive from Test")
     }
     

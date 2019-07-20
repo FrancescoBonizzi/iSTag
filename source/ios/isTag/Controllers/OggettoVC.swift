@@ -8,6 +8,7 @@
 
 import UIKit
 import AZDialogView
+import JGProgressHUD
 
 class OggettoVC: UIViewController {
     
@@ -17,6 +18,7 @@ class OggettoVC: UIViewController {
     var isTest = 0
     var accessToken = String()
     var qrCode = ""
+    let hud = JGProgressHUD(style: .dark)
     
     @IBOutlet weak var oggettoImageVIew: UIImageView!
     
@@ -28,8 +30,10 @@ class OggettoVC: UIViewController {
     @IBOutlet weak var inUseLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var prendiButton: UIButton!
+    @IBOutlet weak var historyButton: UIButton!
     
-    var email = ""
+    var originalEmail = "d.nicoli@isolutions.it"
+    var email = "d.nicoli@isolutions.it"
     
     override func viewDidLoad() {
         
@@ -37,6 +41,7 @@ class OggettoVC: UIViewController {
         self.isTest = appDelegate.isTest
         
         DispatchQueue.main.async {
+            self.historyButton.isHidden = true
             self.roundView(viewToRound: self.bottomView)
         }
     
@@ -45,12 +50,23 @@ class OggettoVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        super.viewWillAppear(true)
+        // Show the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func showHud() {
+        self.hud.textLabel.text = "Loading"
+        self.hud.show(in: self.view)
+    }
+    
+    private func hideHud() {
+        self.hud.dismiss()
     }
     
     func roundView(viewToRound: UIView) {
@@ -60,6 +76,8 @@ class OggettoVC: UIViewController {
     }
     
     private func loadData() {
+        
+        self.showHud()
         
         var source: RequestProtocol
         if (self.isTest == 0) {
@@ -73,10 +91,16 @@ class OggettoVC: UIViewController {
             let objNetworkManager = NetworkManager(shared: source)
             objNetworkManager.shared.warehouseGetData(token: self.accessToken, qRCode: self.qrCode) { (response) in
                 
-                if response == nil { return }
+                if response == nil {
+                    self.hideHud()
+                    return
+                }
                 
                 DispatchQueue.main.async {
-                    self.oggettoNameLabel.text = response?.name
+                    self.hideHud()
+                    
+                    self.historyButton.isHidden = false
+                    self.oggettoNameLabel.text = response!.name
                     self.descriptionTextView.text = response?.warehouseDescription
                     
                     let url = URL(string: Constants.azureEndpoint + response!.picture)
@@ -88,10 +112,17 @@ class OggettoVC: UIViewController {
                     }
                     
                     if let currentOwner = response?.currentOwner {
-                        //self.ownerView.isHidden = false
-                        //self.inUseLabel.isHidden = false
                         self.ownerLabel.text = currentOwner.name
+                        
+                        // se sono io cambio il testo
+                        if self.email == currentOwner.email {
+                            self.prendiButton.setTitle("Lascia", for: .normal)
+                        }
+                        // setto la variabile globale
                         self.email = currentOwner.email
+                        
+                    } else {
+                        self.ownerLabel.text = "Disponibile"
                     }
                 }
             }
@@ -100,9 +131,15 @@ class OggettoVC: UIViewController {
             let objNetworkManager = NetworkManager(shared: source)
             objNetworkManager.shared.consumablesGetData(token: self.accessToken, qRCode: self.qrCode) { (response) in
                 
-                if response == nil { return }
+                if response == nil {
+                    self.hideHud()
+                    return
+                }
                 
                 DispatchQueue.main.async {
+                    self.hideHud()
+                    
+                    self.historyButton.isHidden = true
                     self.oggettoNameLabel.text = response?.name
                     self.descriptionTextView.text = response?.consumablesDescription
                     
@@ -112,6 +149,16 @@ class OggettoVC: UIViewController {
                     if let imageData = data {
                         let image = UIImage(data: imageData)
                         self.oggettoImageVIew.image = image
+                    }
+                    
+                    if let isMissing = response?.isMissing {
+                        if isMissing {
+                            self.prendiButton.setTitle("In arrivo", for: .normal)
+                            self.prendiButton.isEnabled = false
+                        } else {
+                            self.prendiButton.setTitle("E' finito", for: .normal)
+                            self.prendiButton.isEnabled = true
+                        }
                     }
                     
                     self.ownerView.isHidden = true
@@ -148,14 +195,24 @@ class OggettoVC: UIViewController {
         switch self.objectType {
         case "Warehouse":
                 let objNetworkManager = NetworkManager(shared: source)
-                objNetworkManager.shared.warehouseGive(token: self.accessToken, qRCode: self.qrCode, who: self.email) { (resultBool) in
+                objNetworkManager.shared.warehouseGive(token: self.accessToken, qRCode: self.qrCode, who: self.email) { (resultString) in
                     
                     DispatchQueue.main.async {
-                        if resultBool {
+                        
+                        if self.originalEmail == resultString {
+                            self.showMessage(title: "Successo", message: "Oggetto preso in carico!")
+                            self.prendiButton.setTitle("Lascia", for: .normal)
+                            self.ownerLabel.text = resultString
+                        } else {
+                            self.showMessage(title: "Successo", message: "Oggetto lasciato in magazzino!")
+                            self.prendiButton.setTitle("Prendi", for: .normal)
+                            self.ownerLabel.text = "Disponibile"
+                        }
+                        /*if resultBool {
                             self.showMessage(title: "Successo", message: "Oggetto preso in carico!")
                         } else {
                             self.showMessage(title: "Error", message: "Errore durante la richiesta!")
-                        }
+                        }*/
                     }
                     
                 }
@@ -167,10 +224,10 @@ class OggettoVC: UIViewController {
                     DispatchQueue.main.async {
                         if resultString == "Missing" {
                             self.showMessage(title: "Successo", message: "Richiesta oggetto mancante inserita con successo!")
-                            self.prendiButton.setTitle("Ora c'è", for: .normal)
+                            self.prendiButton.setTitle("In arrivo", for: .normal)
+                            self.prendiButton.isEnabled = false
                         } else if resultString == "NotMissing" {
                             self.showMessage(title: "Ripristinato", message: "Oggetto ora disponibile!")
-                            self.prendiButton.setTitle("Prendi", for: .normal)
                         } else {
                             self.showMessage(title: "Error", message: "Errore durante la richiesta!")
                         }
@@ -212,6 +269,24 @@ class OggettoVC: UIViewController {
         //dialog.show(in: )
         
     }
+    
+    //Azione performata quando viene effettuato il segue tra i view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "showHistory":
+            let historyTVC = segue.destination as! HistoryTVC
+            historyTVC.qrCode = self.qrCode
+        default:
+            break
+        }
+        
+    }
+    
+    @IBAction func historyButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "showHistory", sender: nil)
+    }
+    
     
 }
 

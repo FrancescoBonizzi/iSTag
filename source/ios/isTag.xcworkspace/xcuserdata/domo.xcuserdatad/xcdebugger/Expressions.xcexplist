@@ -3,6 +3,22 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in closure #2 in HistoryTVC.loadData():HistoryTVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.historyTableView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in Requests.isAlive(token:):Requests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "token">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in LoginVC.acquireTokenSilently(_:):LoginVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,10 +27,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "OggettoVC.loadData():OggettoVC.swift">
+         contextName = "closure #1 in closure #1 in OggettoVC.loadData():OggettoVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.objectType">
+               value = "self.ownerView.isHidden">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginVC.callAlive(_:):LoginVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.accessToken">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HistoryTVC.loadData():HistoryTVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.qrCode">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,10 +62,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CameraVC.prepare(for:sender:):CameraVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender as! String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in LoginVC.acquireTokenInteractively():LoginVC.swift">
          <PersistentStrings>
             <PersistentString
                value = "result.accessToken">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OggettoVC.loadData():OggettoVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.objectType">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -46,10 +94,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LoginVC.callAlive(_:):LoginVC.swift">
+         contextName = "closure #1 in closure #2 in OggettoVC.loadData():OggettoVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.accessToken">
+               value = "response?.isMissing">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -65,26 +113,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CameraVC.prepare(for:sender:):CameraVC.swift">
+         contextName = "CameraVC.viewWillAppear(_:):CameraVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "sender as! String">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in Requests.isAlive(token:):Requests.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "token">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in OggettoVC.loadData():OggettoVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.ownerView.isHidden">
+               value = "navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

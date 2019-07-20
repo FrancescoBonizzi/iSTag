@@ -55,7 +55,10 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginTapped(_ sender: Any) {
+        // vado al TVC con i settings
         callGraphAPI()
+        performSegue(withIdentifier: "showCamera", sender: nil)
+        
     }
     
     

@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AZDialogView" "${PODS_CONFIGURATION_BUILD_DIR}/BouncyLayout" "${PODS_CONFIGURATION_BUILD_DIR}/BulletinBoard" "${PODS_CONFIGURATION_BUILD_DIR}/LoadingShimmer" "${PODS_CONFIGURATION_BUILD_DIR}/MSAL"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AZDialogView" "${PODS_CONFIGURATION_BUILD_DIR}/BouncyLayout" "${PODS_CONFIGURATION_BUILD_DIR}/BulletinBoard" "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD" "${PODS_CONFIGURATION_BUILD_DIR}/LoadingShimmer" "${PODS_CONFIGURATION_BUILD_DIR}/MSAL"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AZDialogView/AZDialogView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BouncyLayout/BouncyLayout.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BulletinBoard/BLTNBoard.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/LoadingShimmer/LoadingShimmer.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MSAL/MSAL.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AZDialogView/AZDialogView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BouncyLayout/BouncyLayout.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BulletinBoard/BLTNBoard.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/LoadingShimmer/LoadingShimmer.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MSAL/MSAL.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "AZDialogView" -framework "BLTNBoard" -framework "BouncyLayout" -framework "LoadingShimmer" -framework "MSAL" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -framework "AZDialogView" -framework "BLTNBoard" -framework "BouncyLayout" -framework "Foundation" -framework "JGProgressHUD" -framework "LoadingShimmer" -framework "MSAL" -framework "QuartzCore" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

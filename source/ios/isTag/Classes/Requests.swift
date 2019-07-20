@@ -86,9 +86,9 @@ class Requests: RequestProtocol {
 
     }
     
-    func warehouseGetHistory(token: String, qRCode: String) {
+    func warehouseGetHistoryByOBject(token: String, qRCode: String, completation: @escaping (WarehouseHistoryObject?) -> ()) {
         
-        if let url = URL(string: Constants.azureEndpoint + Constants.getWarhouseHistory + qRCode ) {
+        if let url = URL(string: Constants.azureEndpoint + Constants.getWarhouseHistoryByObject + qRCode ) {
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "GET"
             //request.httpBody = jsonData
@@ -96,9 +96,20 @@ class Requests: RequestProtocol {
             
             URLSession.shared.dataTask(with: urlRequest) { (data, response, errro) in
                 if let data = data {
-                    if let jsonString = String(data: data, encoding: .utf8) {
-                        print(jsonString)
+                    
+                    do {
+                        let warehouseHistoryObjectResult = try JSONDecoder().decode(WarehouseHistoryObject.self, from: data)
+                        
+                        completation(warehouseHistoryObjectResult)
+                        
+                    } catch {
+                        print(error)
                     }
+                    
+                    /*
+                     if let jsonString = String(data: data, encoding: .utf8) {
+                     print(jsonString)
+                     }*/
                 }
             }.resume()
             
@@ -106,7 +117,39 @@ class Requests: RequestProtocol {
         
     }
     
-    func warehouseGive(token: String, qRCode: String, who: String, completation: @escaping (Bool) -> ()) {
+    func warehouseGetHistoryByUser(token: String, email: String, completation: @escaping (WarehouseHistoryObject?) -> ()) {
+        
+        if let url = URL(string: Constants.azureEndpoint + Constants.getWarehouseHistoryByUser + email ) {
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "GET"
+            //request.httpBody = jsonData
+            urlRequest.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
+            
+            URLSession.shared.dataTask(with: urlRequest) { (data, response, errro) in
+                if let data = data {
+                    
+                    do {
+                        let warehouseHistoryObjectResult = try JSONDecoder().decode(WarehouseHistoryObject.self, from: data)
+                        
+                        completation(warehouseHistoryObjectResult)
+                        
+                    } catch {
+                        print(error)
+                    }
+                    
+                    /*
+                     if let jsonString = String(data: data, encoding: .utf8) {
+                     print(jsonString)
+                     }*/
+                }
+                
+            }.resume()
+            
+        }
+        
+    }
+    
+    func warehouseGive(token: String, qRCode: String, who: String, completation: @escaping (String) -> ()) {
         if let url = URL(string: Constants.azureEndpoint + Constants.giveWarehouse) {
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "POST"
@@ -123,10 +166,10 @@ class Requests: RequestProtocol {
                 if let data = data {
                     if let jsonString = String(data: data, encoding: .utf8) {
                         
-                        if jsonString == "true" {
-                            completation(true)
+                        if jsonString != "" {
+                            completation(jsonString)
                         } else {
-                            completation(false)
+                            completation(jsonString)
                         }
                         
                         print(jsonString)

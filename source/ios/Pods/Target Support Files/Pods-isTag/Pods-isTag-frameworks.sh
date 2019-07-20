@@ -164,6 +164,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AZDialogView/AZDialogView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BouncyLayout/BouncyLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LoadingShimmer/LoadingShimmer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework"
 fi
@@ -171,6 +172,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AZDialogView/AZDialogView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BouncyLayout/BouncyLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LoadingShimmer/LoadingShimmer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework"
 fi

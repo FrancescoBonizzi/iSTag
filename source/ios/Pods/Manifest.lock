@@ -2,6 +2,7 @@ PODS:
   - AZDialogView (1.3.7)
   - BouncyLayout (2.1.0)
   - BulletinBoard (3.0.0)
+  - JGProgressHUD (2.0.3)
   - LoadingShimmer (1.0.2)
   - MSAL (0.4.3):
     - MSAL/app-lib (= 0.4.3)
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - AZDialogView
   - BouncyLayout
   - BulletinBoard
+  - JGProgressHUD
   - LoadingShimmer
   - MSAL (~> 0.4.0)
 
@@ -19,6 +21,7 @@ SPEC REPOS:
     - AZDialogView
     - BouncyLayout
     - BulletinBoard
+    - JGProgressHUD
     - LoadingShimmer
     - MSAL
 
@@ -26,9 +29,10 @@ SPEC CHECKSUMS:
   AZDialogView: 617b8fa0774850ef51116ac79c2393b200230e10
   BouncyLayout: a7955879861375cc4e88bb64d42bcf622cd2694c
   BulletinBoard: 927f4f9fd22503ceecd71bfc830fd65d5996593a
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   LoadingShimmer: 930cfb5e2f3cd65b964fd1095e22a8c470e58633
   MSAL: 6e578f727efafb19ba15d0c365a74761da330875
 
-PODFILE CHECKSUM: 543227fca8b1675585a016c087e69ab3ac6e51be
+PODFILE CHECKSUM: 8653be2c8aae787256e503692a7b5210da8a6782
 
 COCOAPODS: 1.7.2

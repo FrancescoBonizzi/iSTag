@@ -6,4 +6,5 @@ target 'isTag' do
   pod "BouncyLayout"
   pod 'AZDialogView'
   pod 'LoadingShimmer'
+  pod 'JGProgressHUD'	
 end

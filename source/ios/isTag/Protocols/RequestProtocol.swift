@@ -16,12 +16,15 @@ protocol RequestProtocol {
     
     func warehouseGetData(token: String, qRCode: String, completation: @escaping (Warehouse?) -> ()) 
 
-    func warehouseGetHistory(token: String, qRCode: String)
+    func warehouseGetHistoryByOBject(token: String, qRCode: String, completation: @escaping (WarehouseHistoryObject?) -> ())
     
-    func warehouseGive(token: String, qRCode: String, who: String, completation: @escaping (Bool) -> ())
+    func warehouseGetHistoryByUser(token: String, email: String, completation: @escaping (WarehouseHistoryObject?) -> ())
+    
+    func warehouseGive(token: String, qRCode: String, who: String, completation: @escaping (String) -> ())
     
     func consumablesGetData(token: String, qRCode: String, completation: @escaping (Consumable?) -> ())
     
     func consumablesGetMissingNotMissing(token: String, qRCode: String, completation: @escaping (String?) -> ())
+
     
 }

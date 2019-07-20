@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Warehouse
 class Warehouse: Codable {
     let name, category, picture: String
-    let currentOwner: CurrentOwner
+    let currentOwner: CurrentOwner?
     let warehouseDescription: String
     
     enum CodingKeys: String, CodingKey {
@@ -19,7 +19,7 @@ class Warehouse: Codable {
         case warehouseDescription = "description"
     }
     
-    init(name: String, picture: String, category: String, currentOwner: CurrentOwner, warehouseDescription: String) {
+    init(name: String, picture: String, category: String, currentOwner: CurrentOwner?, warehouseDescription: String) {
         self.name = name
         self.picture = picture
         self.category = category

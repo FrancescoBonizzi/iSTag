@@ -27,6 +27,8 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     var isTest = 0
     var accessToken = String()
+    var qrCode = ""
+    var userEmail = "d.nicoli@isolutions.it"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -259,7 +261,9 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             oggettoVC.objectType = request.objectType
             oggettoVC.accessToken = request.token
             oggettoVC.qrCode = request.qrCode
-            
+        case "showHistory":
+            let historyTVC = segue.destination as! HistoryTVC
+            historyTVC.userEmail = self.userEmail
         default:
             break
         }
@@ -327,7 +331,10 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 let objNetworkManager = NetworkManager(shared: source)
                 objNetworkManager.shared.genericObjectApi(token: self.accessToken, qRCode: code) { (objTypeResponse) in
                     
-                    if objTypeResponse == nil { return }
+                    if objTypeResponse == nil {
+                        self.captureSession?.stopRunning()
+                        return
+                    }
                     DispatchQueue.main.async {
                         let request = OggettoRequest()
                         request.token = self.accessToken
@@ -349,6 +356,10 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         // vado al TVC con i settings
         performSegue(withIdentifier: "showSettings", sender: nil)
         
+    }
+    
+    @IBAction func historyButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "showHistory", sender: nil)
     }
     
 }

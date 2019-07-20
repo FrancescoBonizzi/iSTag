@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Controllers/LoginVC.swift"
-            timestampString = "585272398.809413"
+            timestampString = "585311743.506338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "acquireTokenInteractively()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Controllers/LoginVC.swift"
-            timestampString = "585272398.809478"
+            timestampString = "585311743.50641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "acquireTokenSilently(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Controllers/LoginVC.swift"
-            timestampString = "585272398.809526"
+            timestampString = "585311743.5064631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "acquireTokenSilently(_:)"
             landmarkType = "7">
             <Locations>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Controllers/LoginVC.swift"
-            timestampString = "585272398.809569"
+            timestampString = "585311743.506512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "currentAccount()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Controllers/LoginVC.swift"
-            timestampString = "585272398.809611"
+            timestampString = "585311743.5065579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "currentAccount()"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Classes/Requests.swift"
-            timestampString = "585272398.809657"
+            timestampString = "585311743.506606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -150,15 +150,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Controllers/LoginVC.swift"
-            timestampString = "585272398.809706"
+            timestampString = "585311743.506663"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "getContentWithToken()"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Classes/Requests.swift"
-            timestampString = "585272398.809747"
+            timestampString = "585311743.506727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Classes/Requests.swift"
-            timestampString = "585272398.809793"
+            timestampString = "585311743.506783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -201,12 +201,92 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "isTag/Controllers/CameraVC.swift"
-            timestampString = "585272398.809842"
+            filePath = "isTag/Classes/Requests.swift"
+            timestampString = "585311743.506848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "330"
-            endingLineNumber = "330"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "warehouseGetHistoryByOBject(token:qRCode:completation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "isTag/Controllers/HistoryTVC.swift"
+            timestampString = "585315972.444419"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "loadData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;isTag.WarehouseHistoryObjectElement&gt;&gt;) -&gt; () in isTag.HistoryTVC.(loadData in _D1EECDB595D48ED7ED726D3272FE95ED)() -&gt; ()"
+                  moduleName = "isTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/domo/Desktop/iSTag%2002.20.27/source/ios/isTag/Controllers/HistoryTVC.swift"
+                  timestampString = "585311743.767231"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "392">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Swift.Array&lt;isTag.WarehouseHistoryObjectElement&gt;&gt;) -&gt; () in isTag.HistoryTVC.(loadData in _D1EECDB595D48ED7ED726D3272FE95ED)() -&gt; ()"
+                  moduleName = "isTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/domo/Desktop/iSTag%2002.20.27/source/ios/isTag/Controllers/HistoryTVC.swift"
+                  timestampString = "585311743.769165"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "isTag/Controllers/HistoryTVC.swift"
+            timestampString = "585315972.444489"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "loadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "isTag/Controllers/CameraVC.swift"
+            timestampString = "585311743.507632"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "metadataOutput(_:didOutput:from:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Controllers/OggettoVC.swift"
-            timestampString = "585272398.809898"
+            timestampString = "585315972.444561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "loadData()"
             landmarkType = "7">
             <Locations>
@@ -230,46 +310,31 @@
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "isTag.OggettoVC.(loadData in _F7DCF5FEAD649CA25AACC0F7FF887A06)() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;isTag.Warehouse&gt;) -&gt; () in isTag.OggettoVC.(loadData in _F7DCF5FEAD649CA25AACC0F7FF887A06)() -&gt; ()"
                   moduleName = "isTag"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/domo/Library/Mobile%20Documents/com~apple~CloudDocs/Dev/Project/isTag/isTag/Controllers/OggettoVC.swift"
-                  timestampString = "585268389.756397"
+                  urlString = "file:///Users/domo/Desktop/iSTag%2002.20.27/source/ios/isTag/Controllers/OggettoVC.swift"
+                  timestampString = "585305817.021994"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "236">
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "268">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "isTag.OggettoVC.(loadData in _F7DCF5FEAD649CA25AACC0F7FF887A06)() -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;isTag.Warehouse&gt;) -&gt; () in isTag.OggettoVC.(loadData in _F7DCF5FEAD649CA25AACC0F7FF887A06)() -&gt; ()"
                   moduleName = "isTag"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/domo/Library/Mobile%20Documents/com~apple~CloudDocs/Dev/Project/isTag/isTag/Controllers/OggettoVC.swift"
-                  timestampString = "585268389.759889"
+                  urlString = "file:///Users/domo/Desktop/iSTag%2002.20.27/source/ios/isTag/Controllers/OggettoVC.swift"
+                  timestampString = "585305817.0235519"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "264">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "isTag.OggettoVC.(loadData in _F7DCF5FEAD649CA25AACC0F7FF887A06)() -&gt; ()"
-                  moduleName = "isTag"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/domo/Library/Mobile%20Documents/com~apple~CloudDocs/Dev/Project/isTag/isTag/Controllers/OggettoVC.swift"
-                  timestampString = "585268389.762108"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "728">
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "200">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -281,11 +346,139 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "isTag/Controllers/OggettoVC.swift"
-            timestampString = "585272398.8099509"
+            timestampString = "585315972.44461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "prendiButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in isTag.OggettoVC.prendiButton(Any) -&gt; ()"
+                  moduleName = "isTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/domo/Desktop/iSTag%2002.20.27/source/ios/isTag/Controllers/OggettoVC.swift"
+                  timestampString = "585306064.195516"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Bool) -&gt; () in isTag.OggettoVC.prendiButton(Any) -&gt; ()"
+                  moduleName = "isTag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/domo/Desktop/iSTag%2002.20.27/source/ios/isTag/Controllers/OggettoVC.swift"
+                  timestampString = "585306064.197565"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "isTag/Classes/Requests.swift"
+            timestampString = "585311743.507812"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "warehouseGive(token:qRCode:who:completation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "isTag/Classes/Requests.swift"
+            timestampString = "585311743.507864"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "warehouseGetHistoryByUser(token:email:completation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "isTag/Controllers/OggettoVC.swift"
+            timestampString = "585315972.444679"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "prendiButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "isTag/Controllers/OggettoVC.swift"
+            timestampString = "585315972.444723"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "prendiButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "isTag/Classes/Requests.swift"
+            timestampString = "585311743.508022"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "warehouseGive(token:qRCode:who:completation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "isTag/Controllers/HistoryTVC.swift"
+            timestampString = "585315972.444787"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "loadData()"
             landmarkType = "7">
          </BreakpointContent>

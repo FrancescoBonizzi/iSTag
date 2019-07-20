@@ -17,6 +17,18 @@ class SettingsTVC: UITableViewController {
         tableView.tableFooterView = UIView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //navigationController?.setNavigationBarHidden(true, animated: false)
+        //navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        //navigationController?.setNavigationBarHidden(false, animated: true)
+        //navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

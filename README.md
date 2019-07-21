@@ -1,3 +1,12 @@
-# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/assets/logo/logo_transparent_black.png" alt="drawing" width="144"/>
-Project for iSolutions Hackaton 2019
-
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide1.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide2.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide3.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide4.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide5.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide6.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide7.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide8.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide9.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide10.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide11.JPG" alt="drawing" width="500"/>
+# <img src="https://github.com/FrancescoBonizzi/iSTag/raw/master/presentation/slide%20output/istag/Slide12.JPG" alt="drawing" width="500"/>

@@ -1,9 +1,4 @@
-﻿@font-face {
-    font-family: 'Lato';
-    src: url('../webfonts/lato-regular-webfont.woff2') format('woff2'), url('../webfonts/lato-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+﻿
 
 html {
     margin: 0;
@@ -15,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Ubuntu Mono', monospace;
     letter-spacing: 0.6px;
     line-height: 24px;
     background: #ebebeb;
@@ -450,17 +445,38 @@ figcaption {
 
 #container {
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 220px 1fr;
     background-color: #e0e0e0;
     height: 100vh;
 }
 
+.nav-element {
+    margin-bottom: 5px;
+    align-self: center;
+    margin-left: 20px;
+}
+
+.nav-separator {
+    height: 1px;
+    width: 85%;
+    align-self: center;
+    justify-self: center;
+    background-color: rgba(97,127,152,.2);
+}
+
 #navigation {
+    border-right: 1px solid white;
+    background-image: url("../images/backgound.jpg");
+    background-size: cover;
     background-color: #f1c0c7;
-    padding: 30px;
+    background-size: 200%;
+    padding: 30px 0px 0px 0px;
     overflow: hidden;
     display: grid;
-    grid-template-rows: 100px 50px 50px;
+    grid-template-rows: 160px 50px 2px 50px 2px 50px 2px;
+    -webkit-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
 }
 
 #main-content {
@@ -475,6 +491,16 @@ figcaption {
     grid-template-columns: auto auto;
 }
 
+.warehouse-category {
+    color: darkslategrey;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.icon-space {
+    margin-right: 15px;
+}
+
 .profile-item {
     padding-right: 15px;
 }
@@ -483,9 +509,6 @@ figcaption {
     padding-left: 50px;
 }
 
-.logo {
-    width: 90px;
-}
 
 h1 {
     font-size: 40px;
@@ -511,8 +534,35 @@ h2 {
     box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
 }
 
+.warehouse-history-details-object {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 30px 10px 30px;
+    width: 650px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+}
+
 .consumable-details {
     grid-template-rows: auto auto auto;
+}
+
+.warehouse-history-details {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 650px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    -webkit-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.75);
 }
 
 .consumable-property {
@@ -529,7 +579,6 @@ h2 {
 }
 
 .consumable-description {
-    
 }
 
 .line {
@@ -584,6 +633,16 @@ h2 {
     display: block;
 }
 
+.horizontally-spaced {
+    margin-right: 10px;
+}
+
+.our-apps {
+    display: block;
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
 
 .button-green {
     height: 32px;
@@ -606,10 +665,43 @@ h2 {
         background-color: #8ffc6a;
     }
 
+.button-red {
+    height: 32px;
+    font-size: 13px;
+    background-color: #b5003d;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 8px 0;
+    border: none;
+    border-radius: 2px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: background-color ease 0.4s;
+    box-shadow: 0 1px 1px rgba(97,127,152,.2), 1px 0 0 rgba(97,127,152,.1), -1px 0 0 rgba(97,127,152,.1);
+}
+
+    .button-red:hover {
+        transition: background-color ease 0.4s;
+        background-color: #e2004c;
+    }
+
+.warehouse-icon {
+    align-self: center;
+}
+
+.foreground-green {
+    color: springgreen;
+}
+
+.foreground-red {
+    color: crimson;
+}
+
 .button-black {
     height: 32px;
     font-size: 13px;
-    background-color: darkslategray;
+    background-color: #1F3D74;
     color: white;
     font-weight: bold;
     text-transform: uppercase;
@@ -624,11 +716,11 @@ h2 {
 
     .button-black:hover {
         transition: background-color ease 0.4s;
-        background-color: lightslategray;
+        background-color: #35599b;
     }
 
 
-#app-consumable {
+#app-consumable, #app-warehouse {
     margin-top: 30px;
 }
 
@@ -678,8 +770,36 @@ a {
     justify-items: center;
 }
 
-.qrImage {
+.qrBorder {
+    border: 1px dashed gray;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    padding-bottom: 30px;
+}
+
+.qrImage1x {
+    width: 100px;
+}
+
+.qrImage2x {
+    width: 200px;
+}
+
+.qrImage3x {
     width: 500px;
+}
+
+.qrTitle1x {
+    font-size: 12px !important;
+}
+
+.qrTitle2x {
+    font-size: 16px !important;
+}
+
+.qrTitle3x {
+    font-size: 30px !important;
 }
 
 .qtTitle {
@@ -690,6 +810,17 @@ a {
     background: white;
 }
 
+.buttons-container {
+    display: flex;
+}
+
+.button-signout {
+    text-align: center;
+}
+
+.index-pic {
+    width: 150px;
+}
 
 /* Controls */
 /* Checkbox */
@@ -733,7 +864,7 @@ a {
 
 /* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #1F3D74;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -772,6 +903,20 @@ a {
     transform: translateY(30px);
 }
 
+.list-complete-item {
+    transition: all 1s;
+}
+
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.list-complete-leave-active {
+    position: absolute;
+}
+
 .fade-enter-active, .fade-leave-active {
     transition: all .5s;
 }
@@ -779,3 +924,37 @@ a {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
 }
+
+.index-paragraph {
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.index-list {
+    list-style-type: square !important;
+}
+
+.index-content {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+
+.bigThing {
+    font-size: 20px;
+}
+
+.logo {
+    justify-self: center;
+}
+
+
+.logo {
+    width: 130px;
+    transition: all 0.3s ease;
+}
+
+    .logo:hover {
+        width: 140px;
+        transition: all 0.3s ease;
+    }

@@ -1,0 +1,108 @@
+﻿@model IsTag.ViewModels.WarehouseObjectHistoryViewModel
+
+
+<div class="animated fadeIn">
+    <h1>Magazzino</h1>
+    <h2>Dettagli oggetto</h2>
+
+    <div id="app-warehouse-history">
+
+        <div class="warehouse-history-details">
+
+            <div>
+                <div class="consumable-image consumable-property">
+                    <img :src="objectInfo.picture" width="160px" />
+                </div>
+            </div>
+
+            <div>
+                <div class="consumable-name consumable-property">
+                    {{ objectInfo.name }}
+                </div>
+
+                <div class="warehouse-name consumable-property">
+                    {{ objectInfo.category }}
+                </div>
+
+                <div class="consumable-description consumable-property">
+                    {{ objectInfo.description }}
+                </div>
+
+                <div class="consumable-proprietario consumable-property">
+                    Attuale proprietario: <b>{{ objectInfo.proprietario }}</b>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <ul>
+
+            <transition-group name="list-complete" tag="li">
+
+                <li v-for="objectHistory in objectHistories" v-bind:key="objectHistory.changeDate" class="warehouse-history-details-object list-complete-item">
+
+                    <div>
+                        <div class="consumable-description">
+                            Proprietario: <b>{{ objectHistory.proprietario }}</b>
+                        </div>
+
+                        <div class="consumable-date">
+                            Cambio possesso: {{ objectHistory.changeDate }}
+                        </div>
+                    </div>
+
+                    <div class="warehouse-icon">
+                        <i v-if="objectHistory.hasProprietario" class="fas fa-arrow-up foreground-green"></i>
+                        <i v-if="!objectHistory.hasProprietario" class="fas fa-arrow-down foreground-red"></i>
+                    </div>
+
+                </li>
+            </transition-group>
+
+        </ul>
+
+    </div>
+</div>
+
+<script>
+
+    var allObjectHistories = [];
+
+    function refreshData() {
+
+        $.get("/Warehouse/GetData?id=@Model.Id")
+            .done(function (response) {
+                warehouseHistoryApp.objectInfo = response;
+            });
+
+        $.get("/Warehouse/GetHistoryByObject?id=@Model.Id")
+            .done(function (response) {
+                allObjectHistories = response;
+                warehouseHistoryApp.objectHistories = allObjectHistories;
+                warehouseHistoryApp.errorMessage = "";
+                warehouseHistoryApp.errorMessagePresent = false;
+            })
+            .fail(function (response) {
+                errorMessage = response;
+                errorMessagePresent = true;
+            });
+
+    };
+
+    var warehouseHistoryApp = new Vue({
+        el: '#app-warehouse-history',
+        data: {
+            objectHistories: allObjectHistories,
+            objectInfo: { }
+        },
+        methods: {
+
+        }
+    });
+
+    refreshData();
+    window.setInterval(refreshData, 1000);
+
+</script>

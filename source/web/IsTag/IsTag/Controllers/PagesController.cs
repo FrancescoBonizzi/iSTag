@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IsTag.Controllers
 {
-#if true
+#if DEBUG
     [AllowAnonymous]
-#endif
+#else
     [Authorize]
+#endif
     public class PagesController : Controller
     {
         public IActionResult Index()
@@ -36,9 +37,14 @@ namespace IsTag.Controllers
             return View();
         }
 
-        public IActionResult PrintQr(string id, string name)
+        public IActionResult PrintQr(string id, string name, int size)
         {
-            return View(new PrintQrViewModel(id, name));
+            return View(new PrintQrViewModel(id, name, size));
+        }
+
+        public IActionResult WarehouseObjectHistory(string id)
+        {
+            return View(new WarehouseObjectHistoryViewModel(id));
         }
     }
 }

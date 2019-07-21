@@ -21,7 +21,7 @@ namespace IsTag.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var consumable = connection.Query<Consumable>("SELECT Q.QRCode, C.Name, C.Status, C.Category, C.Description, C.ImageCode FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID");
+                var consumable = connection.Query<Consumable>("SELECT Q.QRCode, C.Name, C.Status, C.Category, C.Description, C.ImageCode FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID ORDER BY Q.QRCodeID DESC");
                 return consumable;
             }
         }
@@ -58,6 +58,15 @@ namespace IsTag.Repositories
                 connection.Execute("UPDATE Consumables SET Status = CASE WHEN Status = 'Missing' THEN 'NotMissing' ELSE 'Missing' END WHERE QRCodeID = (SELECT QRCodeID FROM QRCodes WHERE QRCode = @Qr)", new { Qr = id });
                 var val = connection.Query<string>("SELECT C.Status FROM QRCodes Q INNER JOIN Consumables C ON Q.QRCodeID = C.QRCodeID WHERE Q.QRCode = @Qr", new { Qr = id }).FirstOrDefault();
                 return val;
+            }
+        }
+
+        public void Delete(string id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Execute("DELETE FROM Consumables WHERE QRCodeID = (SELECT QRCodeID FROM QRCodes WHERE QRCode = @Qr)", new { Qr = id });
+                connection.Execute("DELETE FROM QRCodes WHERE QRCode = @Qr", new { Qr = id });
             }
         }
     }

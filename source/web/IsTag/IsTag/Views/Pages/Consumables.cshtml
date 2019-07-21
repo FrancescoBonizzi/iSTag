@@ -30,9 +30,9 @@
 
         <ul>
 
-            <transition-group name="list" tag="li">
+            <transition-group name="list-complete" tag="li">
 
-                <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container someobject-container">
+                <li v-for="consumable in consumables" v-bind:key="consumable.qrCode" class="consumable-container someobject-container list-complete-item">
 
                     <div>
                         <div class="consumable-image consumable-property">
@@ -53,14 +53,28 @@
 
                         <div class="consumable-property">
                             <label class="checkbox-container">
-                                Mancante
+                                Da rifornire
                                 <input type="checkbox" v-model="consumable.isMissing" v-on:click="setMissing(consumable.qrCode)" />
                                 <span class="checkmark"></span>
                             </label>
                         </div>
 
-                        <div class="consumable-property">
-                            <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name)">Stampa codice</button>
+                        <div class="buttons-container">
+                            <div class="consumable-property horizontally-spaced">
+                                <button class="button-red" v-on:click="removeItem(consumable.qrCode)">Rimuovi</button>
+                            </div>
+
+                            <div class="consumable-property horizontally-spaced">
+                                <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name, 1)">Stampa codice 1x</button>
+                            </div>
+
+                            <div class="consumable-property horizontally-spaced">
+                                <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name, 2)">Stampa codice 2x</button>
+                            </div>
+
+                            <div class="consumable-property horizontally-spaced">
+                                <button class="button-black" v-on:click="printQr(consumable.qrCode, consumable.name, 3)">Stampa codice 3x</button>
+                            </div>
                         </div>
 
                     </div>
@@ -104,7 +118,7 @@
         el: '#app-consumable',
         data: {
             consumables: allConsumables,
-            showAll: true,
+            showAll: false,
             newItem: {
                 name: "",
                 description: "",
@@ -121,10 +135,16 @@
                         refreshData();
                     });
             },
-            printQr: function (id, name) {
+            printQr: function (id, name, size) {
 
-                window.open("/Pages/PrintQr?id=" + id + "&name=" + name);
+                window.open("/Pages/PrintQr?id=" + id + "&name=" + name + "&size=" + size);
 
+            },
+            removeItem: function (id) {
+                $.get("/Consumables/DeleteConsumable/" + id)
+                    .done(function (response) {
+                        refreshData();
+                    });
             },
             createNewItem: function (newItemObject) {
 
@@ -165,5 +185,6 @@
     });
 
     refreshData();
+    window.setInterval(refreshData, 1000);
 
 </script>
